@@ -34,3 +34,8 @@ online-ups
 prediccion-online-ups
 storage-battery
 prediccion-storage-battery
+suavizado-exponecial-holt---winter
+prediccion
+avr-2
+line-ups-1
+conclusión

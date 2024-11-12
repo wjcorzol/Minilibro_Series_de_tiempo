@@ -23,7 +23,7 @@
 <meta name="author" content="Andrés Monsalve, Luz Angélica Norato y Willy Corzo" />
 
 
-<meta name="date" content="2024-11-11" />
+<meta name="date" content="2024-11-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -180,13 +180,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html"><i class="fa fa-check"></i><b>4</b> Modelo de pronostico - Holt Winters</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#suavizado-exponecial"><i class="fa fa-check"></i><b>4.1</b> Suavizado exponecial</a>
+<li class="chapter" data-level="4.1" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#suavizado-exponecial-holt---winter"><i class="fa fa-check"></i><b>4.1</b> Suavizado exponecial (Holt - Winter)</a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#avr-1"><i class="fa fa-check"></i><b>4.1.1</b> AVR</a></li>
-<li class="chapter" data-level="4.1.2" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion-avr"><i class="fa fa-check"></i><b>4.1.2</b> Prediccion AVR</a></li>
-<li class="chapter" data-level="4.1.3" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#line-ups"><i class="fa fa-check"></i><b>4.1.3</b> Line UPS</a></li>
-<li class="chapter" data-level="4.1.4" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#online-ups"><i class="fa fa-check"></i><b>4.1.4</b> Online UPS</a></li>
-<li class="chapter" data-level="4.1.5" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion-online-ups"><i class="fa fa-check"></i><b>4.1.5</b> Prediccion Online UPS</a></li>
+<li class="chapter" data-level="4.1.2" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#line-ups"><i class="fa fa-check"></i><b>4.1.2</b> Line UPS</a></li>
+<li class="chapter" data-level="4.1.3" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#online-ups"><i class="fa fa-check"></i><b>4.1.3</b> Online UPS</a></li>
+<li class="chapter" data-level="4.1.4" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#storage-battery"><i class="fa fa-check"></i><b>4.1.4</b> Storage Battery</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion"><i class="fa fa-check"></i><b>4.2</b> Prediccion</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#avr-2"><i class="fa fa-check"></i><b>4.2.1</b> AVR</a></li>
+<li class="chapter" data-level="4.2.2" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#line-ups-1"><i class="fa fa-check"></i><b>4.2.2</b> Line UPS</a></li>
+<li class="chapter" data-level="4.2.3" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion-online-ups"><i class="fa fa-check"></i><b>4.2.3</b> Prediccion Online UPS</a></li>
+<li class="chapter" data-level="4.2.4" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion-storage-battery"><i class="fa fa-check"></i><b>4.2.4</b> Prediccion Storage Battery</a></li>
+<li class="chapter" data-level="4.2.5" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#conclusión"><i class="fa fa-check"></i><b>4.2.5</b> Conclusión</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -211,10 +218,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="modelo-de-pronostico---holt-winters" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Actividad 4</span> Modelo de pronostico - Holt Winters<a href="modelo-de-pronostico---holt-winters.html#modelo-de-pronostico---holt-winters" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="suavizado-exponecial" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Suavizado exponecial<a href="modelo-de-pronostico---holt-winters.html#suavizado-exponecial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="suavizado-exponecial-holt---winter" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Suavizado exponecial (Holt - Winter)<a href="modelo-de-pronostico---holt-winters.html#suavizado-exponecial-holt---winter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><br></p>
+<p>Se aplicó el modelo de Holt-Winters a los conjuntos de datos AVR, Line UPS, Online UPS y Storage Battery, para realizar un ajuste que permita capturar tendencias y estacionalidades.</p>
 <div id="avr-1" class="section level3 hasAnchor" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> AVR<a href="modelo-de-pronostico---holt-winters.html#avr-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><br>
+El modelo sigue razonablemente las fluctuaciones de la serie de tiempo, aunque tiene dificultades para ajustar algunos picos abruptos, especialmente en 2023. Esto es común cuando existen variaciones drásticas en los datos, ya que el modelo Holt-Winters tiene ciertas limitaciones en la captura de picos extremos.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="modelo-de-pronostico---holt-winters.html#cb1-1" tabindex="-1"></a><span class="co"># Suavizamiento exponencial</span></span>
 <span id="cb1-2"><a href="modelo-de-pronostico---holt-winters.html#cb1-2" tabindex="-1"></a>HW_AVR <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(AVR_ts)</span>
 <span id="cb1-3"><a href="modelo-de-pronostico---holt-winters.html#cb1-3" tabindex="-1"></a></span>
@@ -223,11 +234,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="Minilibro_files/figure-html/unnamed-chunk-1-1.png" width="672" />
 <br></p>
 </div>
-<div id="prediccion-avr" class="section level3 hasAnchor" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Prediccion AVR<a href="modelo-de-pronostico---holt-winters.html#prediccion-avr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="modelo-de-pronostico---holt-winters.html#cb2-1" tabindex="-1"></a>NextYear_AVR <span class="ot">=</span> <span class="fu">forecast</span>(HW_AVR, <span class="at">h=</span><span class="dv">12</span>)</span>
-<span id="cb2-2"><a href="modelo-de-pronostico---holt-winters.html#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="modelo-de-pronostico---holt-winters.html#cb2-3" tabindex="-1"></a>NextYear_AVR</span></code></pre></div>
+<div id="line-ups" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Line UPS<a href="modelo-de-pronostico---holt-winters.html#line-ups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><br>
+El modelo captura bien la variabilidad y los patrones estacionales, aunque hay algunos desajustes en ciertos picos y valles.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="modelo-de-pronostico---holt-winters.html#cb2-1" tabindex="-1"></a><span class="co"># Suavizamiento exponencial</span></span>
+<span id="cb2-2"><a href="modelo-de-pronostico---holt-winters.html#cb2-2" tabindex="-1"></a>HW_Line_UPS <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(Line_UPS_ts)</span>
+<span id="cb2-3"><a href="modelo-de-pronostico---holt-winters.html#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="modelo-de-pronostico---holt-winters.html#cb2-4" tabindex="-1"></a><span class="co"># Visualizar el suavizamiento</span></span>
+<span id="cb2-5"><a href="modelo-de-pronostico---holt-winters.html#cb2-5" tabindex="-1"></a><span class="fu">plot</span>(HW_Line_UPS)</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<br></p>
+</div>
+<div id="online-ups" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Online UPS<a href="modelo-de-pronostico---holt-winters.html#online-ups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El modelo se ajusta bastante bien a las fluctuaciones, capturando tanto la tendencia como la estacionalidad. Sin embargo, como en los otros casos, pierde precisión en los picos más pronunciados
+<br></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="modelo-de-pronostico---holt-winters.html#cb3-1" tabindex="-1"></a><span class="co"># Suavizamiento exponencial</span></span>
+<span id="cb3-2"><a href="modelo-de-pronostico---holt-winters.html#cb3-2" tabindex="-1"></a>HW_Online_UPS <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(Online_UPS_ts)</span>
+<span id="cb3-3"><a href="modelo-de-pronostico---holt-winters.html#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="modelo-de-pronostico---holt-winters.html#cb3-4" tabindex="-1"></a><span class="co"># Visualizar el suavizamiento</span></span>
+<span id="cb3-5"><a href="modelo-de-pronostico---holt-winters.html#cb3-5" tabindex="-1"></a><span class="fu">plot</span>(HW_Online_UPS)</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<br></p>
+</div>
+<div id="storage-battery" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Storage Battery<a href="modelo-de-pronostico---holt-winters.html#storage-battery" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><br>
+El modelo capta la tendencia general, tiene dificultad con los picos más altos</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="modelo-de-pronostico---holt-winters.html#cb4-1" tabindex="-1"></a><span class="co"># Suavizamiento exponencial</span></span>
+<span id="cb4-2"><a href="modelo-de-pronostico---holt-winters.html#cb4-2" tabindex="-1"></a>HW_Storage_Battery <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(Storage_Battery_ts)</span>
+<span id="cb4-3"><a href="modelo-de-pronostico---holt-winters.html#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="modelo-de-pronostico---holt-winters.html#cb4-4" tabindex="-1"></a><span class="co"># Visualizar el suavizamiento</span></span>
+<span id="cb4-5"><a href="modelo-de-pronostico---holt-winters.html#cb4-5" tabindex="-1"></a><span class="fu">plot</span>(HW_Storage_Battery)</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<br></p>
+</div>
+</div>
+<div id="prediccion" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Prediccion<a href="modelo-de-pronostico---holt-winters.html#prediccion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><br></p>
+<div id="avr-2" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> AVR<a href="modelo-de-pronostico---holt-winters.html#avr-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="modelo-de-pronostico---holt-winters.html#cb5-1" tabindex="-1"></a>NextYear_AVR <span class="ot">=</span> <span class="fu">forecast</span>(HW_AVR, <span class="at">h=</span><span class="dv">12</span>)</span>
+<span id="cb5-2"><a href="modelo-de-pronostico---holt-winters.html#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="modelo-de-pronostico---holt-winters.html#cb5-3" tabindex="-1"></a>NextYear_AVR</span></code></pre></div>
 <pre><code>##          Point Forecast      Lo 80     Hi 80      Lo 95     Hi 95
 ## 2024.365       41.19232 -4286.0648  4368.449 -6576.7763  6659.161
 ## 2024.385      849.93266 -3477.3244  5177.190 -5768.0359  7467.901
@@ -242,29 +293,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2024.558      226.62297 -4100.6341  4553.880 -6391.3456  6844.592
 ## 2024.577     2516.25992 -1810.9971  6843.517 -4101.7087  9134.229</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="modelo-de-pronostico---holt-winters.html#cb4-1" tabindex="-1"></a><span class="fu">accuracy</span>(NextYear_AVR)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="modelo-de-pronostico---holt-winters.html#cb7-1" tabindex="-1"></a><span class="fu">accuracy</span>(NextYear_AVR)</span></code></pre></div>
 <pre><code>##                     ME     RMSE      MAE       MPE     MAPE      MASE
 ## Training set -10.51627 3362.726 2031.977 -597.4377 686.9351 0.7053149
 ##                    ACF1
 ## Training set 0.09064362</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="modelo-de-pronostico---holt-winters.html#cb6-1" tabindex="-1"></a><span class="fu">plot</span>(NextYear_AVR)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="modelo-de-pronostico---holt-winters.html#cb9-1" tabindex="-1"></a><span class="fu">plot</span>(NextYear_AVR)</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 <br></p>
 </div>
-<div id="line-ups" class="section level3 hasAnchor" number="4.1.3">
-<h3><span class="header-section-number">4.1.3</span> Line UPS<a href="modelo-de-pronostico---holt-winters.html#line-ups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="modelo-de-pronostico---holt-winters.html#cb7-1" tabindex="-1"></a><span class="co"># Suavizamiento exponencial</span></span>
-<span id="cb7-2"><a href="modelo-de-pronostico---holt-winters.html#cb7-2" tabindex="-1"></a>HW_Line_UPS <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(Line_UPS_ts)</span>
-<span id="cb7-3"><a href="modelo-de-pronostico---holt-winters.html#cb7-3" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="modelo-de-pronostico---holt-winters.html#cb7-4" tabindex="-1"></a><span class="co"># Visualizar el suavizamiento</span></span>
-<span id="cb7-5"><a href="modelo-de-pronostico---holt-winters.html#cb7-5" tabindex="-1"></a><span class="fu">plot</span>(HW_Line_UPS)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-5-1.png" width="672" />
-<br>
-### Prediccion Line UPS</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="modelo-de-pronostico---holt-winters.html#cb8-1" tabindex="-1"></a>NextYear_Line_UPS <span class="ot">=</span> <span class="fu">forecast</span>(HW_Line_UPS, <span class="at">h=</span><span class="dv">12</span>)</span>
-<span id="cb8-2"><a href="modelo-de-pronostico---holt-winters.html#cb8-2" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="modelo-de-pronostico---holt-winters.html#cb8-3" tabindex="-1"></a>NextYear_Line_UPS</span></code></pre></div>
+<div id="line-ups-1" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Line UPS<a href="modelo-de-pronostico---holt-winters.html#line-ups-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="modelo-de-pronostico---holt-winters.html#cb10-1" tabindex="-1"></a>NextYear_Line_UPS <span class="ot">=</span> <span class="fu">forecast</span>(HW_Line_UPS, <span class="at">h=</span><span class="dv">12</span>)</span>
+<span id="cb10-2"><a href="modelo-de-pronostico---holt-winters.html#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="modelo-de-pronostico---holt-winters.html#cb10-3" tabindex="-1"></a>NextYear_Line_UPS</span></code></pre></div>
 <pre><code>##          Point Forecast      Lo 80     Hi 80       Lo 95     Hi 95
 ## 2024.365       2395.203  -585.2597  5375.666 -2163.02140  6953.428
 ## 2024.385       6497.811  3516.7642  9478.857  1938.69340 11056.928
@@ -279,29 +322,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2024.558       4626.535  1632.5616  7620.508    47.64785  9205.422
 ## 2024.577       6198.071  3201.5611  9194.582  1615.30429 10780.839</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="modelo-de-pronostico---holt-winters.html#cb10-1" tabindex="-1"></a><span class="fu">accuracy</span>(NextYear_Line_UPS)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="modelo-de-pronostico---holt-winters.html#cb12-1" tabindex="-1"></a><span class="fu">accuracy</span>(NextYear_Line_UPS)</span></code></pre></div>
 <pre><code>##                    ME     RMSE      MAE  MPE MAPE      MASE      ACF1
 ## Training set 166.8915 2322.122 1699.773 -Inf  Inf 0.7570958 -0.104764</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="modelo-de-pronostico---holt-winters.html#cb12-1" tabindex="-1"></a><span class="fu">plot</span>(NextYear_Line_UPS)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="modelo-de-pronostico---holt-winters.html#cb14-1" tabindex="-1"></a><span class="fu">plot</span>(NextYear_Line_UPS)</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 <br></p>
 </div>
-<div id="online-ups" class="section level3 hasAnchor" number="4.1.4">
-<h3><span class="header-section-number">4.1.4</span> Online UPS<a href="modelo-de-pronostico---holt-winters.html#online-ups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="modelo-de-pronostico---holt-winters.html#cb13-1" tabindex="-1"></a><span class="co"># Suavizamiento exponencial</span></span>
-<span id="cb13-2"><a href="modelo-de-pronostico---holt-winters.html#cb13-2" tabindex="-1"></a>HW_Online_UPS <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(Online_UPS_ts)</span>
-<span id="cb13-3"><a href="modelo-de-pronostico---holt-winters.html#cb13-3" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="modelo-de-pronostico---holt-winters.html#cb13-4" tabindex="-1"></a><span class="co"># Visualizar el suavizamiento</span></span>
-<span id="cb13-5"><a href="modelo-de-pronostico---holt-winters.html#cb13-5" tabindex="-1"></a><span class="fu">plot</span>(HW_Online_UPS)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-9-1.png" width="672" />
-<br></p>
-</div>
-<div id="prediccion-online-ups" class="section level3 hasAnchor" number="4.1.5">
-<h3><span class="header-section-number">4.1.5</span> Prediccion Online UPS<a href="modelo-de-pronostico---holt-winters.html#prediccion-online-ups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="modelo-de-pronostico---holt-winters.html#cb14-1" tabindex="-1"></a>NextYear_Online_UPS <span class="ot">=</span> <span class="fu">forecast</span>(HW_Online_UPS, <span class="at">h=</span><span class="dv">12</span>)</span>
-<span id="cb14-2"><a href="modelo-de-pronostico---holt-winters.html#cb14-2" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="modelo-de-pronostico---holt-winters.html#cb14-3" tabindex="-1"></a>NextYear_Online_UPS</span></code></pre></div>
+<div id="prediccion-online-ups" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Prediccion Online UPS<a href="modelo-de-pronostico---holt-winters.html#prediccion-online-ups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="modelo-de-pronostico---holt-winters.html#cb15-1" tabindex="-1"></a>NextYear_Online_UPS <span class="ot">=</span> <span class="fu">forecast</span>(HW_Online_UPS, <span class="at">h=</span><span class="dv">12</span>)</span>
+<span id="cb15-2"><a href="modelo-de-pronostico---holt-winters.html#cb15-2" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="modelo-de-pronostico---holt-winters.html#cb15-3" tabindex="-1"></a>NextYear_Online_UPS</span></code></pre></div>
 <pre><code>##          Point Forecast      Lo 80    Hi 80       Lo 95    Hi 95
 ## 2024.365       151.6897  -6.253334 309.6327  -89.863305 393.2426
 ## 2024.385       312.4971 154.554145 470.4401   70.944174 554.0501
@@ -316,22 +349,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2024.558       280.1952 122.252189 438.1382   38.642219 521.7481
 ## 2024.577       381.3215 223.378466 539.2645  139.768496 622.8744</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="modelo-de-pronostico---holt-winters.html#cb16-1" tabindex="-1"></a><span class="fu">accuracy</span>(NextYear_Online_UPS)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="modelo-de-pronostico---holt-winters.html#cb17-1" tabindex="-1"></a><span class="fu">accuracy</span>(NextYear_Online_UPS)</span></code></pre></div>
 <pre><code>##                    ME     RMSE      MAE  MPE MAPE      MASE        ACF1
 ## Training set 8.597932 123.0382 90.70832 -Inf  Inf 0.8306248 -0.05999268</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="modelo-de-pronostico---holt-winters.html#cb18-1" tabindex="-1"></a><span class="fu">plot</span>(NextYear_Online_UPS)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-12-1.png" width="672" />
-<br>
-### Storage Battery</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="modelo-de-pronostico---holt-winters.html#cb19-1" tabindex="-1"></a><span class="co"># Suavizamiento exponencial</span></span>
-<span id="cb19-2"><a href="modelo-de-pronostico---holt-winters.html#cb19-2" tabindex="-1"></a>HW_Storage_Battery <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(Storage_Battery_ts)</span>
-<span id="cb19-3"><a href="modelo-de-pronostico---holt-winters.html#cb19-3" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="modelo-de-pronostico---holt-winters.html#cb19-4" tabindex="-1"></a><span class="co"># Visualizar el suavizamiento</span></span>
-<span id="cb19-5"><a href="modelo-de-pronostico---holt-winters.html#cb19-5" tabindex="-1"></a><span class="fu">plot</span>(HW_Storage_Battery)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="modelo-de-pronostico---holt-winters.html#cb19-1" tabindex="-1"></a><span class="fu">plot</span>(NextYear_Online_UPS)</span></code></pre></div>
 <p><img src="Minilibro_files/figure-html/unnamed-chunk-13-1.png" width="672" />
-<br>
-### Prediccion Storage Battery</p>
+<br></p>
+</div>
+<div id="prediccion-storage-battery" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Prediccion Storage Battery<a href="modelo-de-pronostico---holt-winters.html#prediccion-storage-battery" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="modelo-de-pronostico---holt-winters.html#cb20-1" tabindex="-1"></a>NextYear_Storage_Battery <span class="ot">=</span> <span class="fu">forecast</span>(HW_Storage_Battery, <span class="at">h=</span><span class="dv">12</span>)</span>
 <span id="cb20-2"><a href="modelo-de-pronostico---holt-winters.html#cb20-2" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="modelo-de-pronostico---holt-winters.html#cb20-3" tabindex="-1"></a>NextYear_Storage_Battery</span></code></pre></div>
@@ -356,8 +383,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="modelo-de-pronostico---holt-winters.html#cb24-1" tabindex="-1"></a><span class="fu">plot</span>(NextYear_Storage_Battery)</span></code></pre></div>
 <p><img src="Minilibro_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 <br></p>
-<p>Conclusión:
-Nuestros valores de MAPE (Mean Absolute Percentage Error) son extremadamente altos y sugiriendo que el modelo de pronóstico tiene un desempeño muy deficiente.</p>
+</div>
+<div id="conclusión" class="section level3 hasAnchor" number="4.2.5">
+<h3><span class="header-section-number">4.2.5</span> Conclusión<a href="modelo-de-pronostico---holt-winters.html#conclusión" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Nuestros valores de MAPE (Mean Absolute Percentage Error) son extremadamente altos y sugiriendo que el modelo de pronóstico tiene un desempeño muy deficiente.</p>
 <p>La MAPE se expresa como un porcentaje y mide el error absoluto medio en relación con los valores reales. lo que nos indica que que errores de pronóstico son mucho mayores que los valores reales.</p>
 <p>Si el valor real es cero en algún punto, el cálculo del MAPE se vuelve problemático, ya que implica dividir por cero. Por esta razon el modelo de Holt-Winters no es adecuado para el pronostico de ventas de nuestra base de datos.</p>
 

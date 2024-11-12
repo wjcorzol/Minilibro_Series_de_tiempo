@@ -23,7 +23,7 @@
 <meta name="author" content="Andrés Monsalve, Luz Angélica Norato y Willy Corzo" />
 
 
-<meta name="date" content="2024-11-11" />
+<meta name="date" content="2024-11-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -180,16 +180,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html"><i class="fa fa-check"></i><b>4</b> Modelo de pronostico - Holt Winters</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#suavizado-exponecial"><i class="fa fa-check"></i><b>4.1</b> Suavizado exponecial</a>
+<li class="chapter" data-level="4.1" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#suavizado-exponecial-holt---winter"><i class="fa fa-check"></i><b>4.1</b> Suavizado exponecial (Holt - Winter)</a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#avr-1"><i class="fa fa-check"></i><b>4.1.1</b> AVR</a></li>
-<li class="chapter" data-level="4.1.2" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion-avr"><i class="fa fa-check"></i><b>4.1.2</b> Prediccion AVR</a></li>
-<li class="chapter" data-level="4.1.3" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#line-ups"><i class="fa fa-check"></i><b>4.1.3</b> Line UPS</a></li>
-<li class="chapter" data-level="4.1.4" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion-line-ups"><i class="fa fa-check"></i><b>4.1.4</b> Prediccion Line UPS</a></li>
-<li class="chapter" data-level="4.1.5" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#online-ups"><i class="fa fa-check"></i><b>4.1.5</b> Online UPS</a></li>
-<li class="chapter" data-level="4.1.6" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion-online-ups"><i class="fa fa-check"></i><b>4.1.6</b> Prediccion Online UPS</a></li>
-<li class="chapter" data-level="4.1.7" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#storage-battery"><i class="fa fa-check"></i><b>4.1.7</b> Storage Battery</a></li>
-<li class="chapter" data-level="4.1.8" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion-storage-battery"><i class="fa fa-check"></i><b>4.1.8</b> Prediccion Storage Battery</a></li>
+<li class="chapter" data-level="4.1.2" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#line-ups"><i class="fa fa-check"></i><b>4.1.2</b> Line UPS</a></li>
+<li class="chapter" data-level="4.1.3" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#online-ups"><i class="fa fa-check"></i><b>4.1.3</b> Online UPS</a></li>
+<li class="chapter" data-level="4.1.4" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#storage-battery"><i class="fa fa-check"></i><b>4.1.4</b> Storage Battery</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion"><i class="fa fa-check"></i><b>4.2</b> Prediccion</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#avr-2"><i class="fa fa-check"></i><b>4.2.1</b> AVR</a></li>
+<li class="chapter" data-level="4.2.2" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#line-ups-1"><i class="fa fa-check"></i><b>4.2.2</b> Line UPS</a></li>
+<li class="chapter" data-level="4.2.3" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion-online-ups"><i class="fa fa-check"></i><b>4.2.3</b> Prediccion Online UPS</a></li>
+<li class="chapter" data-level="4.2.4" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion-storage-battery"><i class="fa fa-check"></i><b>4.2.4</b> Prediccion Storage Battery</a></li>
+<li class="chapter" data-level="4.2.5" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#conclusión"><i class="fa fa-check"></i><b>4.2.5</b> Conclusión</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -215,7 +219,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Actividad Grupo 4 - Análisis Series de Tiempo</h1>
 <p class="author"><em>Andrés Monsalve, Luz Angélica Norato y Willy Corzo</em></p>
-<p class="date"><em>2024-11-11</em></p>
+<p class="date"><em>2024-11-12</em></p>
 </div>
 <div id="descripción-de-la-base-de-datos" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Actividad 1</span> - Descripción de la Base de Datos<a href="index.html#descripción-de-la-base-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
