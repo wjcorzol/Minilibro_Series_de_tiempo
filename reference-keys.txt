@@ -39,3 +39,10 @@ prediccion
 avr-2
 line-ups-1
 conclusión
+estacionariedad-de-las-series-de-tiempo
+modelos-estacionarios-en-series-de-tiempo---arima
+avr-arima
+line-ups---arima
+online-ups---arima
+storage-battery---arima
+conclusion
