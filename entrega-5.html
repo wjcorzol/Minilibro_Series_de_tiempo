@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Actividad 6 Entrega 5 | Actividad Grupo 4 - Análisis Series de Tiempo</title>
+  <meta name="description" content="Actividad 6 Entrega 5 | Actividad Grupo 4 - Análisis Series de Tiempo" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Actividad 6 Entrega 5 | Actividad Grupo 4 - Análisis Series de Tiempo" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Actividad 6 Entrega 5 | Actividad Grupo 4 - Análisis Series de Tiempo" />
+  
+  
+  
+
+<meta name="author" content="Andrés Monsalve, Luz Angélica Norato y Willy Corzo" />
+
+
+<meta name="date" content="2024-11-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modelos-estacionarios-en-series-de-tiempo---arima.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> - Descripción de la Base de Datos</a></li>
+<li class="chapter" data-level="2" data-path="estructura-de-los-datos-en-series-de-tiempo.html"><a href="estructura-de-los-datos-en-series-de-tiempo.html"><i class="fa fa-check"></i><b>2</b> - Estructura de los datos en series de tiempo</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="estructura-de-los-datos-en-series-de-tiempo.html"><a href="estructura-de-los-datos-en-series-de-tiempo.html#entendimiento-de-los-datos"><i class="fa fa-check"></i><b>2.1</b> Entendimiento de los Datos</a></li>
+<li class="chapter" data-level="2.2" data-path="estructura-de-los-datos-en-series-de-tiempo.html"><a href="estructura-de-los-datos-en-series-de-tiempo.html#preparación-de-los-datos"><i class="fa fa-check"></i><b>2.2</b> Preparación de los Datos</a></li>
+<li class="chapter" data-level="2.3" data-path="estructura-de-los-datos-en-series-de-tiempo.html"><a href="estructura-de-los-datos-en-series-de-tiempo.html#análisis-de-los-datos-en-el-tiempo"><i class="fa fa-check"></i><b>2.3</b> Análisis de los datos en el tiempo</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="estructura-de-los-datos-en-series-de-tiempo.html"><a href="estructura-de-los-datos-en-series-de-tiempo.html#media-móviles"><i class="fa fa-check"></i><b>2.3.1</b> Media móviles</a></li>
+<li class="chapter" data-level="2.3.2" data-path="estructura-de-los-datos-en-series-de-tiempo.html"><a href="estructura-de-los-datos-en-series-de-tiempo.html#rezagos"><i class="fa fa-check"></i><b>2.3.2</b> Rezagos</a></li>
+<li class="chapter" data-level="2.3.3" data-path="estructura-de-los-datos-en-series-de-tiempo.html"><a href="estructura-de-los-datos-en-series-de-tiempo.html#estacionalidad"><i class="fa fa-check"></i><b>2.3.3</b> Estacionalidad</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html"><i class="fa fa-check"></i><b>3</b> - Preprocesamiento y visualización</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#estacionariedad-de-las-series-de-tiempo"><i class="fa fa-check"></i><b>3.1</b> Estacionariedad de las series de tiempo</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#avr"><i class="fa fa-check"></i><b>3.1.1</b> AVR</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#funciones-acf-funcion-de-autocorrelacion-y-pacf-funcion-de-autocorrelacion-parcial"><i class="fa fa-check"></i><b>3.2</b> Funciones ACF (Funcion de Autocorrelacion) y PACF ( Funcion de Autocorrelacion Parcial)</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#análisis-de-la-categoría-online-ups"><i class="fa fa-check"></i><b>3.2.1</b> Análisis de la Categoría Online UPS</a></li>
+<li class="chapter" data-level="3.2.2" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#análisis-de-la-categoría-storage-battery"><i class="fa fa-check"></i><b>3.2.2</b> Análisis de la Categoría Storage Battery</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#descomposición-aditiva"><i class="fa fa-check"></i><b>3.3</b> Descomposición aditiva</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#descomposición-aditiva-avr"><i class="fa fa-check"></i><b>3.3.1</b> Descomposición Aditiva AVR</a></li>
+<li class="chapter" data-level="3.3.2" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#descomposición-aditiva-line-ups"><i class="fa fa-check"></i><b>3.3.2</b> Descomposición Aditiva Line UPS</a></li>
+<li class="chapter" data-level="3.3.3" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#descomposición-aditiva-online-ups"><i class="fa fa-check"></i><b>3.3.3</b> Descomposición Aditiva Online UPS</a></li>
+<li class="chapter" data-level="3.3.4" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#descomposición-aditiva-storage-battery"><i class="fa fa-check"></i><b>3.3.4</b> Descomposición Aditiva Storage Battery</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#descomposición-multiplicativa"><i class="fa fa-check"></i><b>3.4</b> Descomposición Multiplicativa</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#descomposición-multiplicativa-avr"><i class="fa fa-check"></i><b>3.4.1</b> Descomposición Multiplicativa AVR</a></li>
+<li class="chapter" data-level="3.4.2" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#descomposición-multiplicativa-line-ups"><i class="fa fa-check"></i><b>3.4.2</b> Descomposición Multiplicativa Line UPS</a></li>
+<li class="chapter" data-level="3.4.3" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#descomposición-multiplicativa-online-ups"><i class="fa fa-check"></i><b>3.4.3</b> Descomposición Multiplicativa Online UPS</a></li>
+<li class="chapter" data-level="3.4.4" data-path="preprocesamiento-y-visualización.html"><a href="preprocesamiento-y-visualización.html#descomposición-multiplicativa-storage-battery"><i class="fa fa-check"></i><b>3.4.4</b> Descomposición Multiplicativa Storage Battery</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html"><i class="fa fa-check"></i><b>4</b> Modelo de pronostico - Holt Winters</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#suavizado-exponecial-holt---winter"><i class="fa fa-check"></i><b>4.1</b> Suavizado exponecial (Holt - Winter)</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#avr-1"><i class="fa fa-check"></i><b>4.1.1</b> AVR</a></li>
+<li class="chapter" data-level="4.1.2" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#line-ups"><i class="fa fa-check"></i><b>4.1.2</b> Line UPS</a></li>
+<li class="chapter" data-level="4.1.3" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#online-ups"><i class="fa fa-check"></i><b>4.1.3</b> Online UPS</a></li>
+<li class="chapter" data-level="4.1.4" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#storage-battery"><i class="fa fa-check"></i><b>4.1.4</b> Storage Battery</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion"><i class="fa fa-check"></i><b>4.2</b> Prediccion</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#avr-2"><i class="fa fa-check"></i><b>4.2.1</b> AVR</a></li>
+<li class="chapter" data-level="4.2.2" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#line-ups-1"><i class="fa fa-check"></i><b>4.2.2</b> Line UPS</a></li>
+<li class="chapter" data-level="4.2.3" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion-online-ups"><i class="fa fa-check"></i><b>4.2.3</b> Prediccion Online UPS</a></li>
+<li class="chapter" data-level="4.2.4" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#prediccion-storage-battery"><i class="fa fa-check"></i><b>4.2.4</b> Prediccion Storage Battery</a></li>
+<li class="chapter" data-level="4.2.5" data-path="modelo-de-pronostico---holt-winters.html"><a href="modelo-de-pronostico---holt-winters.html#conclusión"><i class="fa fa-check"></i><b>4.2.5</b> Conclusión</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="modelos-estacionarios-en-series-de-tiempo---arima.html"><a href="modelos-estacionarios-en-series-de-tiempo---arima.html"><i class="fa fa-check"></i><b>5</b> Modelos Estacionarios en Series de Tiempo - ARIMA</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="modelos-estacionarios-en-series-de-tiempo---arima.html"><a href="modelos-estacionarios-en-series-de-tiempo---arima.html#avr-arima"><i class="fa fa-check"></i><b>5.1</b> AVR ARIMA</a></li>
+<li class="chapter" data-level="5.2" data-path="modelos-estacionarios-en-series-de-tiempo---arima.html"><a href="modelos-estacionarios-en-series-de-tiempo---arima.html#line-ups---arima"><i class="fa fa-check"></i><b>5.2</b> LINE UPS - ARIMA</a></li>
+<li class="chapter" data-level="5.3" data-path="modelos-estacionarios-en-series-de-tiempo---arima.html"><a href="modelos-estacionarios-en-series-de-tiempo---arima.html#online-ups---arima"><i class="fa fa-check"></i><b>5.3</b> ONLINE UPS - ARIMA</a></li>
+<li class="chapter" data-level="5.4" data-path="modelos-estacionarios-en-series-de-tiempo---arima.html"><a href="modelos-estacionarios-en-series-de-tiempo---arima.html#storage-battery---arima"><i class="fa fa-check"></i><b>5.4</b> STORAGE BATTERY - ARIMA</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="entrega-5.html"><a href="entrega-5.html"><i class="fa fa-check"></i><b>6</b> Entrega 5</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="entrega-5.html"><a href="entrega-5.html#ets-avr"><i class="fa fa-check"></i><b>6.1</b> ETS AVR</a></li>
+<li class="chapter" data-level="6.2" data-path="entrega-5.html"><a href="entrega-5.html#prophet-avr"><i class="fa fa-check"></i><b>6.2</b> Prophet AVR</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="entrega-5.html"><a href="entrega-5.html#comparar-modelos"><i class="fa fa-check"></i><b>6.2.1</b> Comparar modelos</a></li>
+<li class="chapter" data-level="6.2.2" data-path="entrega-5.html"><a href="entrega-5.html#análisis-por-modelo"><i class="fa fa-check"></i><b>6.2.2</b> Análisis por modelo</a></li>
+<li class="chapter" data-level="6.2.3" data-path="entrega-5.html"><a href="entrega-5.html#conclusión-1"><i class="fa fa-check"></i><b>6.2.3</b> Conclusión</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="entrega-5.html"><a href="entrega-5.html#ets-line-ups"><i class="fa fa-check"></i><b>6.3</b> ETS LINE UPS</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="entrega-5.html"><a href="entrega-5.html#comparar-modelos-line-ups"><i class="fa fa-check"></i><b>6.3.1</b> Comparar modelos Line UPS</a></li>
+<li class="chapter" data-level="6.3.2" data-path="entrega-5.html"><a href="entrega-5.html#análisis-de-los-modelos"><i class="fa fa-check"></i><b>6.3.2</b> Análisis de los modelos:</a></li>
+<li class="chapter" data-level="6.3.3" data-path="entrega-5.html"><a href="entrega-5.html#conclusión-2"><i class="fa fa-check"></i><b>6.3.3</b> Conclusión</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="entrega-5.html"><a href="entrega-5.html#ets-online-ups"><i class="fa fa-check"></i><b>6.4</b> ETS ONLINE UPS</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="entrega-5.html"><a href="entrega-5.html#comparar-modelos-online-ups"><i class="fa fa-check"></i><b>6.4.1</b> Comparar modelos Online UPS</a></li>
+<li class="chapter" data-level="6.4.2" data-path="entrega-5.html"><a href="entrega-5.html#análisis-por-modelo-1"><i class="fa fa-check"></i><b>6.4.2</b> Análisis por modelo</a></li>
+<li class="chapter" data-level="6.4.3" data-path="entrega-5.html"><a href="entrega-5.html#conclusión-3"><i class="fa fa-check"></i><b>6.4.3</b> Conclusión</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="entrega-5.html"><a href="entrega-5.html#ets-storage-battery"><i class="fa fa-check"></i><b>6.5</b> ETS STORAGE BATTERY</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="entrega-5.html"><a href="entrega-5.html#comparar-modelos-storage_battery"><i class="fa fa-check"></i><b>6.5.1</b> Comparar modelos Storage_Battery</a></li>
+<li class="chapter" data-level="6.5.2" data-path="entrega-5.html"><a href="entrega-5.html#análisis-por-modelo-2"><i class="fa fa-check"></i><b>6.5.2</b> Análisis por modelo</a></li>
+<li class="chapter" data-level="6.5.3" data-path="entrega-5.html"><a href="entrega-5.html#conclusión-4"><i class="fa fa-check"></i><b>6.5.3</b> Conclusión</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actividad Grupo 4 - Análisis Series de Tiempo</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="entrega-5" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Actividad 6</span> Entrega 5<a href="entrega-5.html#entrega-5" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="entrega-5.html#cb1-1" tabindex="-1"></a><span class="co">#install.packages(&quot;Metrics&quot;)</span></span></code></pre></div>
+<div id="ets-avr" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> ETS AVR<a href="entrega-5.html#ets-avr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="entrega-5.html#cb2-1" tabindex="-1"></a><span class="co"># Ajustar el modelo ETS automáticamente</span></span>
+<span id="cb2-2"><a href="entrega-5.html#cb2-2" tabindex="-1"></a>ETS_AVR <span class="ot">&lt;-</span> <span class="fu">ets</span>(AVR_ts)</span></code></pre></div>
+<pre><code>## Warning in ets(AVR_ts): I can&#39;t handle data with frequency greater than 24.
+## Seasonality will be ignored. Try stlf() if you need seasonal forecasts.</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="entrega-5.html#cb4-1" tabindex="-1"></a><span class="co"># Predicción para las próximas 52 semanas (1 año)</span></span>
+<span id="cb4-2"><a href="entrega-5.html#cb4-2" tabindex="-1"></a>prediccion_ETS_AVR <span class="ot">&lt;-</span> <span class="fu">forecast</span>(ETS_AVR, <span class="at">h =</span> <span class="dv">12</span>)</span>
+<span id="cb4-3"><a href="entrega-5.html#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="entrega-5.html#cb4-4" tabindex="-1"></a><span class="co"># Ver resultados</span></span>
+<span id="cb4-5"><a href="entrega-5.html#cb4-5" tabindex="-1"></a><span class="fu">print</span>(prediccion_ETS_AVR)</span></code></pre></div>
+<pre><code>##          Point Forecast     Lo 80    Hi 80     Lo 95    Hi 95
+## 2024.365        2265.12 -2176.596 6706.837 -4527.899 9058.139
+## 2024.385        2265.12 -2176.596 6706.837 -4527.899 9058.139
+## 2024.404        2265.12 -2176.596 6706.837 -4527.899 9058.139
+## 2024.423        2265.12 -2176.596 6706.837 -4527.899 9058.140
+## 2024.442        2265.12 -2176.596 6706.837 -4527.899 9058.140
+## 2024.462        2265.12 -2176.596 6706.837 -4527.899 9058.140
+## 2024.481        2265.12 -2176.596 6706.837 -4527.899 9058.140
+## 2024.500        2265.12 -2176.596 6706.837 -4527.899 9058.140
+## 2024.519        2265.12 -2176.596 6706.837 -4527.899 9058.140
+## 2024.538        2265.12 -2176.596 6706.837 -4527.899 9058.140
+## 2024.558        2265.12 -2176.596 6706.837 -4527.899 9058.140
+## 2024.577        2265.12 -2176.596 6706.837 -4527.899 9058.140</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="entrega-5.html#cb6-1" tabindex="-1"></a><span class="fu">plot</span>(prediccion_ETS_AVR)</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="prophet-avr" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Prophet AVR<a href="entrega-5.html#prophet-avr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="entrega-5.html#cb7-1" tabindex="-1"></a><span class="co"># Preparar los datos para Prophet</span></span>
+<span id="cb7-2"><a href="entrega-5.html#cb7-2" tabindex="-1"></a>prophet_AVR <span class="ot">&lt;-</span> AVR <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="entrega-5.html#cb7-3" tabindex="-1"></a>  <span class="fu">select</span>(Fecha, Total_AVR) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="entrega-5.html#cb7-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ds =</span> Fecha, <span class="at">y =</span> Total_AVR)  <span class="co"># Prophet requiere las columnas &#39;ds&#39; y &#39;y&#39;</span></span>
+<span id="cb7-5"><a href="entrega-5.html#cb7-5" tabindex="-1"></a>prophet_AVR<span class="sc">$</span>ds <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(prophet_AVR<span class="sc">$</span>ds)  <span class="co"># Asegurar formato de fecha</span></span>
+<span id="cb7-6"><a href="entrega-5.html#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="entrega-5.html#cb7-7" tabindex="-1"></a><span class="co"># Ajustar el modelo Prophet habilitando la estacionalidad diaria</span></span>
+<span id="cb7-8"><a href="entrega-5.html#cb7-8" tabindex="-1"></a>prophet_model_AVR <span class="ot">&lt;-</span> <span class="fu">prophet</span>(</span>
+<span id="cb7-9"><a href="entrega-5.html#cb7-9" tabindex="-1"></a>  prophet_AVR,</span>
+<span id="cb7-10"><a href="entrega-5.html#cb7-10" tabindex="-1"></a>  <span class="at">daily.seasonality =</span> <span class="cn">FALSE</span>  <span class="co"># No incluir estacionalidad diaria</span></span>
+<span id="cb7-11"><a href="entrega-5.html#cb7-11" tabindex="-1"></a>)</span>
+<span id="cb7-12"><a href="entrega-5.html#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="entrega-5.html#cb7-13" tabindex="-1"></a><span class="co"># Crear un marco de tiempo futuro para las próximas 12 períodos (semanas)</span></span>
+<span id="cb7-14"><a href="entrega-5.html#cb7-14" tabindex="-1"></a>future_AVR <span class="ot">&lt;-</span> <span class="fu">make_future_dataframe</span>(prophet_model_AVR, <span class="at">periods =</span> <span class="dv">12</span>, <span class="at">freq =</span> <span class="st">&quot;week&quot;</span>)</span>
+<span id="cb7-15"><a href="entrega-5.html#cb7-15" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="entrega-5.html#cb7-16" tabindex="-1"></a><span class="co"># Realizar las predicciones</span></span>
+<span id="cb7-17"><a href="entrega-5.html#cb7-17" tabindex="-1"></a>forecast_prophet_AVR <span class="ot">&lt;-</span> <span class="fu">predict</span>(prophet_model_AVR, future_AVR)</span>
+<span id="cb7-18"><a href="entrega-5.html#cb7-18" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="entrega-5.html#cb7-19" tabindex="-1"></a><span class="co"># Ver resultados</span></span>
+<span id="cb7-20"><a href="entrega-5.html#cb7-20" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tail</span>(forecast_prophet_AVR, <span class="dv">12</span>))  <span class="co"># Últimas 12 predicciones</span></span></code></pre></div>
+<pre><code>##             ds    trend additive_terms additive_terms_lower
+## 175 2024-05-08 1685.811       4800.583             4800.583
+## 176 2024-05-15 1680.219       4236.907             4236.907
+## 177 2024-05-22 1674.628       4913.432             4913.432
+## 178 2024-05-29 1669.036       5886.749             5886.749
+## 179 2024-06-05 1663.445       6075.058             6075.058
+## 180 2024-06-12 1657.853       5524.007             5524.007
+## 181 2024-06-19 1652.262       5250.316             5250.316
+## 182 2024-06-26 1646.671       5887.626             5887.626
+## 183 2024-07-03 1641.079       6804.259             6804.259
+## 184 2024-07-10 1635.488       6794.498             6794.498
+## 185 2024-07-17 1629.896       5531.485             5531.485
+## 186 2024-07-24 1624.305       4021.673             4021.673
+##     additive_terms_upper   weekly weekly_lower weekly_upper    yearly
+## 175             4800.583 4581.225     4581.225     4581.225  219.3586
+## 176             4236.907 4581.225     4581.225     4581.225 -344.3181
+## 177             4913.432 4581.225     4581.225     4581.225  332.2076
+## 178             5886.749 4581.225     4581.225     4581.225 1305.5242
+## 179             6075.058 4581.225     4581.225     4581.225 1493.8330
+## 180             5524.007 4581.225     4581.225     4581.225  942.7822
+## 181             5250.316 4581.225     4581.225     4581.225  669.0908
+## 182             5887.626 4581.225     4581.225     4581.225 1306.4016
+## 183             6804.259 4581.225     4581.225     4581.225 2223.0338
+## 184             6794.498 4581.225     4581.225     4581.225 2213.2727
+## 185             5531.485 4581.225     4581.225     4581.225  950.2603
+## 186             4021.673 4581.225     4581.225     4581.225 -559.5515
+##     yearly_lower yearly_upper multiplicative_terms multiplicative_terms_lower
+## 175     219.3586     219.3586                    0                          0
+## 176    -344.3181    -344.3181                    0                          0
+## 177     332.2076     332.2076                    0                          0
+## 178    1305.5242    1305.5242                    0                          0
+## 179    1493.8330    1493.8330                    0                          0
+## 180     942.7822     942.7822                    0                          0
+## 181     669.0908     669.0908                    0                          0
+## 182    1306.4016    1306.4016                    0                          0
+## 183    2223.0338    2223.0338                    0                          0
+## 184    2213.2727    2213.2727                    0                          0
+## 185     950.2603     950.2603                    0                          0
+## 186    -559.5515    -559.5515                    0                          0
+##     multiplicative_terms_upper yhat_lower yhat_upper trend_lower trend_upper
+## 175                          0   2457.160  10782.036    1685.811    1685.811
+## 176                          0   1640.992   9800.694    1680.219    1680.219
+## 177                          0   2649.582  10616.114    1674.628    1674.628
+## 178                          0   3401.357  11412.212    1669.036    1669.037
+## 179                          0   3789.268  11644.784    1663.444    1663.445
+## 180                          0   3305.595  10936.705    1657.853    1657.854
+## 181                          0   3052.431  11001.334    1652.261    1652.263
+## 182                          0   3534.239  11301.145    1646.669    1646.672
+## 183                          0   4337.260  12437.055    1641.077    1641.081
+## 184                          0   4721.708  12709.693    1635.486    1635.490
+## 185                          0   2905.907  11169.809    1629.894    1629.899
+## 186                          0   1662.179   9615.354    1624.302    1624.307
+##         yhat
+## 175 6486.394
+## 176 5917.126
+## 177 6588.060
+## 178 7555.785
+## 179 7738.503
+## 180 7181.861
+## 181 6902.578
+## 182 7534.297
+## 183 8445.338
+## 184 8429.985
+## 185 7161.381
+## 186 5645.978</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="entrega-5.html#cb9-1" tabindex="-1"></a><span class="fu">plot</span>(prophet_model_AVR, forecast_prophet_AVR)  <span class="co"># Graficar las predicciones</span></span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="entrega-5.html#cb10-1" tabindex="-1"></a><span class="fu">prophet_plot_components</span>(prophet_model_AVR, forecast_prophet_AVR)  <span class="co"># Componentes del modelo</span></span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<div id="comparar-modelos" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Comparar modelos<a href="entrega-5.html#comparar-modelos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="entrega-5.html#cb11-1" tabindex="-1"></a><span class="co"># Supongamos que tienes el siguiente:</span></span>
+<span id="cb11-2"><a href="entrega-5.html#cb11-2" tabindex="-1"></a><span class="co"># Valores reales</span></span>
+<span id="cb11-3"><a href="entrega-5.html#cb11-3" tabindex="-1"></a>real_values <span class="ot">&lt;-</span> AVR_ts[(<span class="fu">length</span>(AVR_ts) <span class="sc">-</span> <span class="dv">11</span>)<span class="sc">:</span><span class="fu">length</span>(AVR_ts)]  <span class="co"># Últimos 12 valores como prueba</span></span>
+<span id="cb11-4"><a href="entrega-5.html#cb11-4" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="entrega-5.html#cb11-5" tabindex="-1"></a><span class="co"># Predicciones</span></span>
+<span id="cb11-6"><a href="entrega-5.html#cb11-6" tabindex="-1"></a>arima_preds <span class="ot">&lt;-</span> prediccion_ARIMA_AVR<span class="sc">$</span>mean  <span class="co"># Predicciones de ARIMA</span></span>
+<span id="cb11-7"><a href="entrega-5.html#cb11-7" tabindex="-1"></a>ets_preds <span class="ot">&lt;-</span> prediccion_ETS_AVR<span class="sc">$</span>mean  <span class="co"># Predicciones de ETS</span></span>
+<span id="cb11-8"><a href="entrega-5.html#cb11-8" tabindex="-1"></a>prophet_preds <span class="ot">&lt;-</span> <span class="fu">tail</span>(forecast_prophet_AVR<span class="sc">$</span>yhat, <span class="dv">12</span>)  <span class="co"># Predicciones de Prophet</span></span>
+<span id="cb11-9"><a href="entrega-5.html#cb11-9" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="entrega-5.html#cb11-10" tabindex="-1"></a><span class="co"># Calcular métricas para ARIMA</span></span>
+<span id="cb11-11"><a href="entrega-5.html#cb11-11" tabindex="-1"></a>mae_arima <span class="ot">&lt;-</span> <span class="fu">mae</span>(real_values, arima_preds)</span>
+<span id="cb11-12"><a href="entrega-5.html#cb11-12" tabindex="-1"></a>rmse_arima <span class="ot">&lt;-</span> <span class="fu">rmse</span>(real_values, arima_preds)</span>
+<span id="cb11-13"><a href="entrega-5.html#cb11-13" tabindex="-1"></a>mape_arima <span class="ot">&lt;-</span> <span class="fu">mape</span>(real_values, arima_preds)</span>
+<span id="cb11-14"><a href="entrega-5.html#cb11-14" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="entrega-5.html#cb11-15" tabindex="-1"></a><span class="co"># Calcular métricas para ETS</span></span>
+<span id="cb11-16"><a href="entrega-5.html#cb11-16" tabindex="-1"></a>mae_ets <span class="ot">&lt;-</span> <span class="fu">mae</span>(real_values, ets_preds)</span>
+<span id="cb11-17"><a href="entrega-5.html#cb11-17" tabindex="-1"></a>rmse_ets <span class="ot">&lt;-</span> <span class="fu">rmse</span>(real_values, ets_preds)</span>
+<span id="cb11-18"><a href="entrega-5.html#cb11-18" tabindex="-1"></a>mape_ets <span class="ot">&lt;-</span> <span class="fu">mape</span>(real_values, ets_preds)</span>
+<span id="cb11-19"><a href="entrega-5.html#cb11-19" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="entrega-5.html#cb11-20" tabindex="-1"></a><span class="co"># Calcular métricas para Prophet</span></span>
+<span id="cb11-21"><a href="entrega-5.html#cb11-21" tabindex="-1"></a>mae_prophet <span class="ot">&lt;-</span> <span class="fu">mae</span>(real_values, prophet_preds)</span>
+<span id="cb11-22"><a href="entrega-5.html#cb11-22" tabindex="-1"></a>rmse_prophet <span class="ot">&lt;-</span> <span class="fu">rmse</span>(real_values, prophet_preds)</span>
+<span id="cb11-23"><a href="entrega-5.html#cb11-23" tabindex="-1"></a>mape_prophet <span class="ot">&lt;-</span> <span class="fu">mape</span>(real_values, prophet_preds)</span>
+<span id="cb11-24"><a href="entrega-5.html#cb11-24" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="entrega-5.html#cb11-25" tabindex="-1"></a><span class="co"># Crear la tabla de resultados</span></span>
+<span id="cb11-26"><a href="entrega-5.html#cb11-26" tabindex="-1"></a>results_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-27"><a href="entrega-5.html#cb11-27" tabindex="-1"></a>  <span class="at">Model =</span> <span class="fu">c</span>(<span class="st">&quot;ARIMA&quot;</span>, <span class="st">&quot;ETS&quot;</span>, <span class="st">&quot;Prophet&quot;</span>),</span>
+<span id="cb11-28"><a href="entrega-5.html#cb11-28" tabindex="-1"></a>  <span class="at">MAE =</span> <span class="fu">c</span>(mae_arima, mae_ets, mae_prophet),</span>
+<span id="cb11-29"><a href="entrega-5.html#cb11-29" tabindex="-1"></a>  <span class="at">RMSE =</span> <span class="fu">c</span>(rmse_arima, rmse_ets, rmse_prophet),</span>
+<span id="cb11-30"><a href="entrega-5.html#cb11-30" tabindex="-1"></a>  <span class="at">MAPE =</span> <span class="fu">c</span>(mape_arima, mape_ets, mape_prophet)</span>
+<span id="cb11-31"><a href="entrega-5.html#cb11-31" tabindex="-1"></a>)</span>
+<span id="cb11-32"><a href="entrega-5.html#cb11-32" tabindex="-1"></a></span>
+<span id="cb11-33"><a href="entrega-5.html#cb11-33" tabindex="-1"></a><span class="co"># Mostrar la tabla</span></span>
+<span id="cb11-34"><a href="entrega-5.html#cb11-34" tabindex="-1"></a><span class="fu">print</span>(results_table)</span></code></pre></div>
+<pre><code>##     Model      MAE     RMSE      MAPE
+## 1   ARIMA 2044.422 2483.923  4.515627
+## 2     ETS 2050.977 2515.275  4.811419
+## 3 Prophet 5042.441 5705.956 17.331976</code></pre>
+</div>
+<div id="análisis-por-modelo" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Análisis por modelo<a href="entrega-5.html#análisis-por-modelo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="arima" class="section level4 hasAnchor" number="6.2.2.1">
+<h4><span class="header-section-number">6.2.2.1</span> ARIMA<a href="entrega-5.html#arima" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MAE: 2044.422
+RMSE: 2483.923
+MAPE: 4.52%</p>
+<p>ARIMA tiene el mejor rendimiento general:</p>
+<p>Error absoluto bajo (MAE): Indica que en promedio, las predicciones están a ±2044.42 unidades de los valores reales.</p>
+<p>RMSE bajo: Indica que penaliza menos los errores grandes en comparación con los otros modelos.</p>
+<p>MAPE más bajo: Con un 4.52%, ARIMA ofrece predicciones muy cercanas a los valores reales en términos porcentuales.</p>
+</div>
+<div id="ets" class="section level4 hasAnchor" number="6.2.2.2">
+<h4><span class="header-section-number">6.2.2.2</span> ETS<a href="entrega-5.html#ets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MAE: 2050.977
+RMSE: 2515.275
+MAPE: 4.81%</p>
+<p>ETS está muy cerca de ARIMA:</p>
+<p>Su MAE y RMSE son ligeramente superiores a los de ARIMA, lo que sugiere que este modelo es casi tan preciso como ARIMA pero menos eficiente con errores grandes.</p>
+<p>Su MAPE también es un poco más alto (4.81%), lo que indica un rendimiento porcentual ligeramente inferior.</p>
+</div>
+<div id="prophet" class="section level4 hasAnchor" number="6.2.2.3">
+<h4><span class="header-section-number">6.2.2.3</span> Prophet<a href="entrega-5.html#prophet" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MAE: 5042.440
+RMSE: 5705.955
+MAPE: 17.33%</p>
+<p>Prophet tiene el peor rendimiento entre los modelos:</p>
+<p>MAE y RMSE altos: Sus errores absolutos y cuadrados son significativamente más altos, lo que indica un mal ajuste general.</p>
+<p>MAPE muy alto (17.33%): Sus predicciones están mucho más lejos de los valores reales en términos porcentuales.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="entrega-5.html#cb13-1" tabindex="-1"></a><span class="co"># Crear un data.frame con valores reales y predicciones</span></span>
+<span id="cb13-2"><a href="entrega-5.html#cb13-2" tabindex="-1"></a>comparison_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb13-3"><a href="entrega-5.html#cb13-3" tabindex="-1"></a>  <span class="at">Fecha =</span> AVR<span class="sc">$</span>Fecha[(<span class="fu">length</span>(AVR<span class="sc">$</span>Fecha) <span class="sc">-</span> <span class="dv">11</span>)<span class="sc">:</span><span class="fu">length</span>(AVR<span class="sc">$</span>Fecha)],  <span class="co"># Últimas 12 fechas</span></span>
+<span id="cb13-4"><a href="entrega-5.html#cb13-4" tabindex="-1"></a>  <span class="at">Real =</span> AVR<span class="sc">$</span>Total[(<span class="fu">length</span>(AVR<span class="sc">$</span>Total) <span class="sc">-</span> <span class="dv">11</span>)<span class="sc">:</span><span class="fu">length</span>(AVR<span class="sc">$</span>Total)],  <span class="co"># Valores reales</span></span>
+<span id="cb13-5"><a href="entrega-5.html#cb13-5" tabindex="-1"></a>  <span class="at">ARIMA =</span> <span class="fu">as.numeric</span>(prediccion_ARIMA_AVR<span class="sc">$</span>mean),  <span class="co"># Predicciones ARIMA</span></span>
+<span id="cb13-6"><a href="entrega-5.html#cb13-6" tabindex="-1"></a>  <span class="at">ETS =</span> <span class="fu">as.numeric</span>(prediccion_ETS_AVR<span class="sc">$</span>mean),  <span class="co"># Predicciones ETS</span></span>
+<span id="cb13-7"><a href="entrega-5.html#cb13-7" tabindex="-1"></a>  <span class="at">Prophet =</span> <span class="fu">tail</span>(forecast_prophet_AVR<span class="sc">$</span>yhat, <span class="dv">12</span>)  <span class="co"># Predicciones Prophet</span></span>
+<span id="cb13-8"><a href="entrega-5.html#cb13-8" tabindex="-1"></a>)</span>
+<span id="cb13-9"><a href="entrega-5.html#cb13-9" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="entrega-5.html#cb13-10" tabindex="-1"></a><span class="co"># Convertir los datos a formato largo para usar ggplot2</span></span>
+<span id="cb13-11"><a href="entrega-5.html#cb13-11" tabindex="-1"></a>comparison_data_long <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
+<span id="cb13-12"><a href="entrega-5.html#cb13-12" tabindex="-1"></a>  comparison_data,</span>
+<span id="cb13-13"><a href="entrega-5.html#cb13-13" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;Real&quot;</span>, <span class="st">&quot;ARIMA&quot;</span>, <span class="st">&quot;ETS&quot;</span>, <span class="st">&quot;Prophet&quot;</span>),</span>
+<span id="cb13-14"><a href="entrega-5.html#cb13-14" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">&quot;Modelo&quot;</span>,</span>
+<span id="cb13-15"><a href="entrega-5.html#cb13-15" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">&quot;Ventas&quot;</span></span>
+<span id="cb13-16"><a href="entrega-5.html#cb13-16" tabindex="-1"></a>)</span>
+<span id="cb13-17"><a href="entrega-5.html#cb13-17" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="entrega-5.html#cb13-18" tabindex="-1"></a><span class="co"># Graficar las predicciones y valores reales</span></span>
+<span id="cb13-19"><a href="entrega-5.html#cb13-19" tabindex="-1"></a><span class="fu">ggplot</span>(comparison_data_long, <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">y =</span> Ventas, <span class="at">color =</span> Modelo, <span class="at">group =</span> Modelo)) <span class="sc">+</span></span>
+<span id="cb13-20"><a href="entrega-5.html#cb13-20" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb13-21"><a href="entrega-5.html#cb13-21" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb13-22"><a href="entrega-5.html#cb13-22" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb13-23"><a href="entrega-5.html#cb13-23" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Comparación de modelos (ARIMA, ETS y Prophet)&quot;</span>,</span>
+<span id="cb13-24"><a href="entrega-5.html#cb13-24" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Fecha&quot;</span>,</span>
+<span id="cb13-25"><a href="entrega-5.html#cb13-25" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Ventas&quot;</span>,</span>
+<span id="cb13-26"><a href="entrega-5.html#cb13-26" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Modelo&quot;</span></span>
+<span id="cb13-27"><a href="entrega-5.html#cb13-27" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-28"><a href="entrega-5.html#cb13-28" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+</div>
+<div id="conclusión-1" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Conclusión<a href="entrega-5.html#conclusión-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mejor modelo: ARIMA es el mejor modelo en términos absolutos (MAE, RMSE) y relativos (MAPE). Sus predicciones son más consistentes y cercanas a los valores reales.</p>
+<p>ETS es una alternativa razonable si no puedes usar ARIMA, ya que ofrece un rendimiento muy similar.</p>
+<p>Prophet tiene un rendimiento significativamente inferior en este caso, con mayores errores absolutos y porcentuales. Esto podría deberse a que Prophet no está bien adaptado a los patrones específicos de estos datos.</p>
+</div>
+</div>
+<div id="ets-line-ups" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> ETS LINE UPS<a href="entrega-5.html#ets-line-ups" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="entrega-5.html#cb15-1" tabindex="-1"></a><span class="co"># Ajustar ETS sin estacionalidad</span></span>
+<span id="cb15-2"><a href="entrega-5.html#cb15-2" tabindex="-1"></a>ETS_Line_UPS <span class="ot">&lt;-</span> <span class="fu">ets</span>(Line_UPS_ts, <span class="at">model =</span> <span class="st">&quot;ZZN&quot;</span>)  <span class="co"># Sin componente estacional</span></span>
+<span id="cb15-3"><a href="entrega-5.html#cb15-3" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="entrega-5.html#cb15-4" tabindex="-1"></a><span class="co"># Predicción para los próximos 12 períodos</span></span>
+<span id="cb15-5"><a href="entrega-5.html#cb15-5" tabindex="-1"></a>forecast_ETS_Line_UPS <span class="ot">&lt;-</span> <span class="fu">forecast</span>(ETS_Line_UPS, <span class="at">h =</span> <span class="dv">12</span>)</span>
+<span id="cb15-6"><a href="entrega-5.html#cb15-6" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="entrega-5.html#cb15-7" tabindex="-1"></a><span class="co"># Graficar los resultados</span></span>
+<span id="cb15-8"><a href="entrega-5.html#cb15-8" tabindex="-1"></a><span class="fu">plot</span>(forecast_ETS_Line_UPS)</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="entrega-5.html#cb16-1" tabindex="-1"></a><span class="co"># Preparar los datos para Prophet</span></span>
+<span id="cb16-2"><a href="entrega-5.html#cb16-2" tabindex="-1"></a>prophet_Line_UPS <span class="ot">&lt;-</span> Line_UPS <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="entrega-5.html#cb16-3" tabindex="-1"></a>  <span class="fu">select</span>(Fecha, Total_Line_UPS) <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="entrega-5.html#cb16-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ds =</span> Fecha, <span class="at">y =</span> Total_Line_UPS)  <span class="co"># Prophet requiere las columnas &#39;ds&#39; y &#39;y&#39;</span></span>
+<span id="cb16-5"><a href="entrega-5.html#cb16-5" tabindex="-1"></a>prophet_Line_UPS<span class="sc">$</span>ds <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(prophet_Line_UPS<span class="sc">$</span>ds)  <span class="co"># Asegurar formato de fecha</span></span>
+<span id="cb16-6"><a href="entrega-5.html#cb16-6" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="entrega-5.html#cb16-7" tabindex="-1"></a><span class="co"># Ajustar el modelo Prophet habilitando la estacionalidad diaria</span></span>
+<span id="cb16-8"><a href="entrega-5.html#cb16-8" tabindex="-1"></a>prophet_model_Line_UPS <span class="ot">&lt;-</span> <span class="fu">prophet</span>(</span>
+<span id="cb16-9"><a href="entrega-5.html#cb16-9" tabindex="-1"></a>  prophet_Line_UPS,</span>
+<span id="cb16-10"><a href="entrega-5.html#cb16-10" tabindex="-1"></a>  <span class="at">daily.seasonality =</span> <span class="cn">FALSE</span>  <span class="co"># No incluir estacionalidad diaria</span></span>
+<span id="cb16-11"><a href="entrega-5.html#cb16-11" tabindex="-1"></a>)</span>
+<span id="cb16-12"><a href="entrega-5.html#cb16-12" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="entrega-5.html#cb16-13" tabindex="-1"></a><span class="co"># Crear un marco de tiempo futuro para las próximas 12 períodos (semanas)</span></span>
+<span id="cb16-14"><a href="entrega-5.html#cb16-14" tabindex="-1"></a>future_Line_UPS <span class="ot">&lt;-</span> <span class="fu">make_future_dataframe</span>(prophet_model_Line_UPS, <span class="at">periods =</span> <span class="dv">12</span>, <span class="at">freq =</span> <span class="st">&quot;week&quot;</span>)</span>
+<span id="cb16-15"><a href="entrega-5.html#cb16-15" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="entrega-5.html#cb16-16" tabindex="-1"></a><span class="co"># Realizar las predicciones</span></span>
+<span id="cb16-17"><a href="entrega-5.html#cb16-17" tabindex="-1"></a>forecast_prophet_Line_UPS <span class="ot">&lt;-</span> <span class="fu">predict</span>(prophet_model_Line_UPS, future_Line_UPS)</span>
+<span id="cb16-18"><a href="entrega-5.html#cb16-18" tabindex="-1"></a></span>
+<span id="cb16-19"><a href="entrega-5.html#cb16-19" tabindex="-1"></a><span class="co"># Ver resultados</span></span>
+<span id="cb16-20"><a href="entrega-5.html#cb16-20" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tail</span>(forecast_prophet_Line_UPS, <span class="dv">12</span>))  <span class="co"># Últimas 12 predicciones</span></span></code></pre></div>
+<pre><code>##             ds    trend additive_terms additive_terms_lower
+## 175 2024-05-08 3340.160       3243.251             3243.251
+## 176 2024-05-15 3337.790       2195.109             2195.109
+## 177 2024-05-22 3335.421       1654.125             1654.125
+## 178 2024-05-29 3333.052       2014.432             2014.432
+## 179 2024-06-05 3330.683       2781.616             2781.616
+## 180 2024-06-12 3328.313       3144.714             3144.714
+## 181 2024-06-19 3325.944       2818.844             2818.844
+## 182 2024-06-26 3323.575       2260.955             2260.955
+## 183 2024-07-03 3321.206       2111.021             2111.021
+## 184 2024-07-10 3318.836       2530.450             2530.450
+## 185 2024-07-17 3316.467       3113.209             3113.209
+## 186 2024-07-24 3314.098       3354.653             3354.653
+##     additive_terms_upper   weekly weekly_lower weekly_upper      yearly
+## 175             3243.251 3016.747     3016.747     3016.747   226.50368
+## 176             2195.109 3016.747     3016.747     3016.747  -821.63881
+## 177             1654.125 3016.747     3016.747     3016.747 -1362.62212
+## 178             2014.432 3016.747     3016.747     3016.747 -1002.31500
+## 179             2781.616 3016.747     3016.747     3016.747  -235.13095
+## 180             3144.714 3016.747     3016.747     3016.747   127.96683
+## 181             2818.844 3016.747     3016.747     3016.747  -197.90375
+## 182             2260.955 3016.747     3016.747     3016.747  -755.79282
+## 183             2111.021 3016.747     3016.747     3016.747  -905.72665
+## 184             2530.450 3016.747     3016.747     3016.747  -486.29758
+## 185             3113.209 3016.747     3016.747     3016.747    96.46131
+## 186             3354.653 3016.747     3016.747     3016.747   337.90610
+##     yearly_lower yearly_upper multiplicative_terms multiplicative_terms_lower
+## 175    226.50368    226.50368                    0                          0
+## 176   -821.63881   -821.63881                    0                          0
+## 177  -1362.62212  -1362.62212                    0                          0
+## 178  -1002.31500  -1002.31500                    0                          0
+## 179   -235.13095   -235.13095                    0                          0
+## 180    127.96683    127.96683                    0                          0
+## 181   -197.90375   -197.90375                    0                          0
+## 182   -755.79282   -755.79282                    0                          0
+## 183   -905.72665   -905.72665                    0                          0
+## 184   -486.29758   -486.29758                    0                          0
+## 185     96.46131     96.46131                    0                          0
+## 186    337.90610    337.90610                    0                          0
+##     multiplicative_terms_upper yhat_lower yhat_upper trend_lower trend_upper
+## 175                          0   3641.993   9562.456    3340.160    3340.160
+## 176                          0   2506.069   8546.945    3337.780    3337.794
+## 177                          0   1978.007   7781.271    3335.388    3335.441
+## 178                          0   2557.613   8227.048    3332.991    3333.096
+## 179                          0   3284.502   9013.315    3330.588    3330.760
+## 180                          0   3494.233   9492.073    3328.181    3328.432
+## 181                          0   3393.177   9182.461    3325.770    3326.118
+## 182                          0   2589.008   8371.161    3323.354    3323.799
+## 183                          0   2581.314   8546.899    3320.929    3321.477
+## 184                          0   2894.789   8854.642    3318.508    3319.146
+## 185                          0   3372.567   9236.186    3316.088    3316.837
+## 186                          0   3685.165   9697.303    3313.667    3314.527
+##         yhat
+## 175 6583.411
+## 176 5532.899
+## 177 4989.546
+## 178 5347.484
+## 179 6112.299
+## 180 6473.028
+## 181 6144.788
+## 182 5584.529
+## 183 5432.226
+## 184 5849.286
+## 185 6429.676
+## 186 6668.751</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="entrega-5.html#cb18-1" tabindex="-1"></a><span class="fu">plot</span>(prophet_model_Line_UPS, forecast_prophet_Line_UPS)  <span class="co"># Graficar las predicciones</span></span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="entrega-5.html#cb19-1" tabindex="-1"></a><span class="fu">prophet_plot_components</span>(prophet_model_Line_UPS, forecast_prophet_Line_UPS)  <span class="co"># Componentes del modelo</span></span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<div id="comparar-modelos-line-ups" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Comparar modelos Line UPS<a href="entrega-5.html#comparar-modelos-line-ups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="entrega-5.html#cb20-1" tabindex="-1"></a><span class="co"># Supongamos que tienes el siguiente:</span></span>
+<span id="cb20-2"><a href="entrega-5.html#cb20-2" tabindex="-1"></a><span class="co"># Valores reales</span></span>
+<span id="cb20-3"><a href="entrega-5.html#cb20-3" tabindex="-1"></a>real_values <span class="ot">&lt;-</span> Line_UPS_ts[(<span class="fu">length</span>(Line_UPS_ts) <span class="sc">-</span> <span class="dv">11</span>)<span class="sc">:</span><span class="fu">length</span>(Line_UPS_ts)]  <span class="co"># Últimos 12 valores como prueba</span></span>
+<span id="cb20-4"><a href="entrega-5.html#cb20-4" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="entrega-5.html#cb20-5" tabindex="-1"></a><span class="co"># Predicciones</span></span>
+<span id="cb20-6"><a href="entrega-5.html#cb20-6" tabindex="-1"></a>arima_preds <span class="ot">&lt;-</span> prediccion_ARIMA_Line_UPS<span class="sc">$</span>mean  <span class="co"># Predicciones de ARIMA</span></span>
+<span id="cb20-7"><a href="entrega-5.html#cb20-7" tabindex="-1"></a>ets_preds <span class="ot">&lt;-</span> forecast_ETS_Line_UPS<span class="sc">$</span>mean  <span class="co"># Predicciones de ETS</span></span>
+<span id="cb20-8"><a href="entrega-5.html#cb20-8" tabindex="-1"></a>prophet_preds <span class="ot">&lt;-</span> <span class="fu">tail</span>(forecast_prophet_Line_UPS<span class="sc">$</span>yhat, <span class="dv">12</span>)  <span class="co"># Predicciones de Prophet</span></span>
+<span id="cb20-9"><a href="entrega-5.html#cb20-9" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="entrega-5.html#cb20-10" tabindex="-1"></a><span class="co"># Calcular métricas para ARIMA</span></span>
+<span id="cb20-11"><a href="entrega-5.html#cb20-11" tabindex="-1"></a>mae_arima <span class="ot">&lt;-</span> <span class="fu">mae</span>(real_values, arima_preds)</span>
+<span id="cb20-12"><a href="entrega-5.html#cb20-12" tabindex="-1"></a>rmse_arima <span class="ot">&lt;-</span> <span class="fu">rmse</span>(real_values, arima_preds)</span>
+<span id="cb20-13"><a href="entrega-5.html#cb20-13" tabindex="-1"></a>mape_arima <span class="ot">&lt;-</span> <span class="fu">mape</span>(real_values, arima_preds)</span>
+<span id="cb20-14"><a href="entrega-5.html#cb20-14" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="entrega-5.html#cb20-15" tabindex="-1"></a><span class="co"># Calcular métricas para ETS</span></span>
+<span id="cb20-16"><a href="entrega-5.html#cb20-16" tabindex="-1"></a>mae_ets <span class="ot">&lt;-</span> <span class="fu">mae</span>(real_values, ets_preds)</span>
+<span id="cb20-17"><a href="entrega-5.html#cb20-17" tabindex="-1"></a>rmse_ets <span class="ot">&lt;-</span> <span class="fu">rmse</span>(real_values, ets_preds)</span>
+<span id="cb20-18"><a href="entrega-5.html#cb20-18" tabindex="-1"></a>mape_ets <span class="ot">&lt;-</span> <span class="fu">mape</span>(real_values, ets_preds)</span>
+<span id="cb20-19"><a href="entrega-5.html#cb20-19" tabindex="-1"></a></span>
+<span id="cb20-20"><a href="entrega-5.html#cb20-20" tabindex="-1"></a><span class="co"># Calcular métricas para Prophet</span></span>
+<span id="cb20-21"><a href="entrega-5.html#cb20-21" tabindex="-1"></a>mae_prophet <span class="ot">&lt;-</span> <span class="fu">mae</span>(real_values, prophet_preds)</span>
+<span id="cb20-22"><a href="entrega-5.html#cb20-22" tabindex="-1"></a>rmse_prophet <span class="ot">&lt;-</span> <span class="fu">rmse</span>(real_values, prophet_preds)</span>
+<span id="cb20-23"><a href="entrega-5.html#cb20-23" tabindex="-1"></a>mape_prophet <span class="ot">&lt;-</span> <span class="fu">mape</span>(real_values, prophet_preds)</span>
+<span id="cb20-24"><a href="entrega-5.html#cb20-24" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="entrega-5.html#cb20-25" tabindex="-1"></a><span class="co"># Crear la tabla de resultados</span></span>
+<span id="cb20-26"><a href="entrega-5.html#cb20-26" tabindex="-1"></a>results_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb20-27"><a href="entrega-5.html#cb20-27" tabindex="-1"></a>  <span class="at">Model =</span> <span class="fu">c</span>(<span class="st">&quot;ARIMA&quot;</span>, <span class="st">&quot;ETS&quot;</span>, <span class="st">&quot;Prophet&quot;</span>),</span>
+<span id="cb20-28"><a href="entrega-5.html#cb20-28" tabindex="-1"></a>  <span class="at">MAE =</span> <span class="fu">c</span>(mae_arima, mae_ets, mae_prophet),</span>
+<span id="cb20-29"><a href="entrega-5.html#cb20-29" tabindex="-1"></a>  <span class="at">RMSE =</span> <span class="fu">c</span>(rmse_arima, rmse_ets, rmse_prophet),</span>
+<span id="cb20-30"><a href="entrega-5.html#cb20-30" tabindex="-1"></a>  <span class="at">MAPE =</span> <span class="fu">c</span>(mape_arima, mape_ets, mape_prophet)</span>
+<span id="cb20-31"><a href="entrega-5.html#cb20-31" tabindex="-1"></a>)</span>
+<span id="cb20-32"><a href="entrega-5.html#cb20-32" tabindex="-1"></a></span>
+<span id="cb20-33"><a href="entrega-5.html#cb20-33" tabindex="-1"></a><span class="co"># Mostrar la tabla</span></span>
+<span id="cb20-34"><a href="entrega-5.html#cb20-34" tabindex="-1"></a><span class="fu">print</span>(results_table)</span></code></pre></div>
+<pre><code>##     Model      MAE     RMSE     MAPE
+## 1   ARIMA 2577.115 2846.265 1.219503
+## 2     ETS 2222.473 2684.927 1.223313
+## 3 Prophet 2304.351 2738.744 1.916079</code></pre>
+</div>
+<div id="análisis-de-los-modelos" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Análisis de los modelos:<a href="entrega-5.html#análisis-de-los-modelos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="arima-1" class="section level4 hasAnchor" number="6.3.2.1">
+<h4><span class="header-section-number">6.3.2.1</span> ARIMA<a href="entrega-5.html#arima-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MAE: 2576.788
+RMSE: 2845.951
+MAPE: 1.22%</p>
+<p>ARIMA tiene un rendimiento moderado. Su MAPE es ligeramente más bajo que ETS (1.22% vs. 1.22%), lo que indica que en términos porcentuales es comparable. Sin embargo:
+Tiene un MAE más alto que ETS (2576.788 frente a 2222.473), lo que significa que su error absoluto promedio es mayor.</p>
+<p>Su RMSE más alto (2845.951) indica que los errores grandes están más presentes en este modelo.</p>
+</div>
+<div id="ets-1" class="section level4 hasAnchor" number="6.3.2.2">
+<h4><span class="header-section-number">6.3.2.2</span> ETS<a href="entrega-5.html#ets-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MAE: 2222.473
+RMSE: 2684.927
+MAPE: 1.22%</p>
+<p>ETS tiene el mejor desempeño absoluto en términos de MAE y RMSE, lo que significa que produce las predicciones más cercanas a los valores reales.</p>
+<p>Aunque su MAPE (1.22%) es muy similar al de ARIMA, ETS destaca por manejar mejor los errores grandes (menor RMSE).</p>
+<p>Esto lo convierte en el modelo más preciso en general, especialmente para reducir errores absolutos.</p>
+</div>
+<div id="prophet-1" class="section level4 hasAnchor" number="6.3.2.3">
+<h4><span class="header-section-number">6.3.2.3</span> Prophet<a href="entrega-5.html#prophet-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MAE: 2304.351
+RMSE: 2738.743
+MAPE: 1.92%</p>
+<p>Prophet tiene un desempeño intermedio en MAE y RMSE, siendo mejor que ARIMA pero peor que ETS.</p>
+<p>Su MAPE (1.92%) es considerablemente más alto que los de ARIMA y ETS, lo que indica que tiene dificultades para capturar los valores relativos en comparación con los otros modelos.</p>
+<p>Esto podría deberse a que Prophet está más diseñado para datos con patrones estacionales fuertes o largos horizontes de predicción.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="entrega-5.html#cb22-1" tabindex="-1"></a><span class="co"># Crear un data.frame con valores reales y predicciones</span></span>
+<span id="cb22-2"><a href="entrega-5.html#cb22-2" tabindex="-1"></a>comparison_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb22-3"><a href="entrega-5.html#cb22-3" tabindex="-1"></a>  <span class="at">Fecha =</span> Line_UPS<span class="sc">$</span>Fecha[(<span class="fu">length</span>(Line_UPS<span class="sc">$</span>Fecha) <span class="sc">-</span> <span class="dv">11</span>)<span class="sc">:</span><span class="fu">length</span>(Line_UPS<span class="sc">$</span>Fecha)],  </span>
+<span id="cb22-4"><a href="entrega-5.html#cb22-4" tabindex="-1"></a>  <span class="at">Real =</span> Line_UPS<span class="sc">$</span>Total[(<span class="fu">length</span>(Line_UPS<span class="sc">$</span>Total) <span class="sc">-</span> <span class="dv">11</span>)<span class="sc">:</span><span class="fu">length</span>(Line_UPS<span class="sc">$</span>Total)],  </span>
+<span id="cb22-5"><a href="entrega-5.html#cb22-5" tabindex="-1"></a>  <span class="at">ARIMA =</span> <span class="fu">as.numeric</span>(prediccion_ARIMA_Line_UPS<span class="sc">$</span>mean),  <span class="co"># Predicciones ARIMA</span></span>
+<span id="cb22-6"><a href="entrega-5.html#cb22-6" tabindex="-1"></a>  <span class="at">ETS =</span> <span class="fu">as.numeric</span>(forecast_ETS_Line_UPS<span class="sc">$</span>mean),  <span class="co"># Predicciones ETS</span></span>
+<span id="cb22-7"><a href="entrega-5.html#cb22-7" tabindex="-1"></a>  <span class="at">Prophet =</span> <span class="fu">tail</span>(forecast_prophet_Line_UPS<span class="sc">$</span>yhat, <span class="dv">12</span>)  <span class="co"># Predicciones Prophet</span></span>
+<span id="cb22-8"><a href="entrega-5.html#cb22-8" tabindex="-1"></a>)</span>
+<span id="cb22-9"><a href="entrega-5.html#cb22-9" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="entrega-5.html#cb22-10" tabindex="-1"></a><span class="co"># Convertir los datos a formato largo para usar ggplot2</span></span>
+<span id="cb22-11"><a href="entrega-5.html#cb22-11" tabindex="-1"></a>comparison_data_long <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
+<span id="cb22-12"><a href="entrega-5.html#cb22-12" tabindex="-1"></a>  comparison_data,</span>
+<span id="cb22-13"><a href="entrega-5.html#cb22-13" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;Real&quot;</span>, <span class="st">&quot;ARIMA&quot;</span>, <span class="st">&quot;ETS&quot;</span>, <span class="st">&quot;Prophet&quot;</span>),</span>
+<span id="cb22-14"><a href="entrega-5.html#cb22-14" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">&quot;Modelo&quot;</span>,</span>
+<span id="cb22-15"><a href="entrega-5.html#cb22-15" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">&quot;Ventas&quot;</span></span>
+<span id="cb22-16"><a href="entrega-5.html#cb22-16" tabindex="-1"></a>)</span>
+<span id="cb22-17"><a href="entrega-5.html#cb22-17" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="entrega-5.html#cb22-18" tabindex="-1"></a><span class="co"># Graficar las predicciones y valores reales</span></span>
+<span id="cb22-19"><a href="entrega-5.html#cb22-19" tabindex="-1"></a><span class="fu">ggplot</span>(comparison_data_long, <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">y =</span> Ventas, <span class="at">color =</span> Modelo, <span class="at">group =</span> Modelo)) <span class="sc">+</span></span>
+<span id="cb22-20"><a href="entrega-5.html#cb22-20" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb22-21"><a href="entrega-5.html#cb22-21" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb22-22"><a href="entrega-5.html#cb22-22" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb22-23"><a href="entrega-5.html#cb22-23" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Comparación de modelos (ARIMA, ETS y Prophet)&quot;</span>,</span>
+<span id="cb22-24"><a href="entrega-5.html#cb22-24" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Fecha&quot;</span>,</span>
+<span id="cb22-25"><a href="entrega-5.html#cb22-25" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Ventas&quot;</span>,</span>
+<span id="cb22-26"><a href="entrega-5.html#cb22-26" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Modelo&quot;</span></span>
+<span id="cb22-27"><a href="entrega-5.html#cb22-27" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb22-28"><a href="entrega-5.html#cb22-28" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+</div>
+<div id="conclusión-2" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Conclusión<a href="entrega-5.html#conclusión-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mejor modelo:
+ETS es el modelo más preciso según MAE y RMSE, y tiene un MAPE competitivo con ARIMA. Es el modelo recomendado para este caso.</p>
+<p>ARIMA es una alternativa razonable, con un buen MAPE, pero tiene errores más grandes en términos absolutos y es menos eficiente con errores grandes (mayor RMSE).</p>
+<p>Prophet tiene el peor desempeño relativo (MAPE más alto), pero sigue siendo útil si el objetivo es capturar patrones de largo plazo o estacionalidades no capturadas por ETS o ARIMA.</p>
+</div>
+</div>
+<div id="ets-online-ups" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> ETS ONLINE UPS<a href="entrega-5.html#ets-online-ups" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="entrega-5.html#cb23-1" tabindex="-1"></a><span class="co"># Ajustar ETS sin estacionalidad</span></span>
+<span id="cb23-2"><a href="entrega-5.html#cb23-2" tabindex="-1"></a>ETS_Online_UPS <span class="ot">&lt;-</span> <span class="fu">ets</span>(Online_UPS_ts, <span class="at">model =</span> <span class="st">&quot;ZZN&quot;</span>)  <span class="co"># Sin componente estacional</span></span>
+<span id="cb23-3"><a href="entrega-5.html#cb23-3" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="entrega-5.html#cb23-4" tabindex="-1"></a><span class="co"># Predicción para los próximos 12 períodos</span></span>
+<span id="cb23-5"><a href="entrega-5.html#cb23-5" tabindex="-1"></a>forecast_ETS_Online_UPS <span class="ot">&lt;-</span> <span class="fu">forecast</span>(ETS_Online_UPS, <span class="at">h =</span> <span class="dv">12</span>)</span>
+<span id="cb23-6"><a href="entrega-5.html#cb23-6" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="entrega-5.html#cb23-7" tabindex="-1"></a><span class="co"># Graficar los resultados</span></span>
+<span id="cb23-8"><a href="entrega-5.html#cb23-8" tabindex="-1"></a><span class="fu">plot</span>(forecast_ETS_Online_UPS)</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="entrega-5.html#cb24-1" tabindex="-1"></a><span class="co"># Preparar los datos para Prophet</span></span>
+<span id="cb24-2"><a href="entrega-5.html#cb24-2" tabindex="-1"></a>prophet_Online_UPS <span class="ot">&lt;-</span> Online_UPS <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="entrega-5.html#cb24-3" tabindex="-1"></a>  <span class="fu">select</span>(Fecha, Total_Online_UPS) <span class="sc">%&gt;%</span></span>
+<span id="cb24-4"><a href="entrega-5.html#cb24-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ds =</span> Fecha, <span class="at">y =</span> Total_Online_UPS)  <span class="co"># Prophet requiere las columnas &#39;ds&#39; y &#39;y&#39;</span></span>
+<span id="cb24-5"><a href="entrega-5.html#cb24-5" tabindex="-1"></a>prophet_Online_UPS<span class="sc">$</span>ds <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(prophet_Online_UPS<span class="sc">$</span>ds)  <span class="co"># Asegurar formato de fecha</span></span>
+<span id="cb24-6"><a href="entrega-5.html#cb24-6" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="entrega-5.html#cb24-7" tabindex="-1"></a><span class="co"># Ajustar el modelo Prophet habilitando la estacionalidad diaria</span></span>
+<span id="cb24-8"><a href="entrega-5.html#cb24-8" tabindex="-1"></a>prophet_model_Online_UPS <span class="ot">&lt;-</span> <span class="fu">prophet</span>(</span>
+<span id="cb24-9"><a href="entrega-5.html#cb24-9" tabindex="-1"></a>  prophet_Online_UPS,</span>
+<span id="cb24-10"><a href="entrega-5.html#cb24-10" tabindex="-1"></a>  <span class="at">daily.seasonality =</span> <span class="cn">FALSE</span>  <span class="co"># No incluir estacionalidad diaria</span></span>
+<span id="cb24-11"><a href="entrega-5.html#cb24-11" tabindex="-1"></a>)</span>
+<span id="cb24-12"><a href="entrega-5.html#cb24-12" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="entrega-5.html#cb24-13" tabindex="-1"></a><span class="co"># Crear un marco de tiempo futuro para las próximas 12 períodos (semanas)</span></span>
+<span id="cb24-14"><a href="entrega-5.html#cb24-14" tabindex="-1"></a>future_Online_UPS <span class="ot">&lt;-</span> <span class="fu">make_future_dataframe</span>(prophet_model_Online_UPS, <span class="at">periods =</span> <span class="dv">12</span>, <span class="at">freq =</span> <span class="st">&quot;week&quot;</span>)</span>
+<span id="cb24-15"><a href="entrega-5.html#cb24-15" tabindex="-1"></a></span>
+<span id="cb24-16"><a href="entrega-5.html#cb24-16" tabindex="-1"></a><span class="co"># Realizar las predicciones</span></span>
+<span id="cb24-17"><a href="entrega-5.html#cb24-17" tabindex="-1"></a>forecast_prophet_Online_UPS <span class="ot">&lt;-</span> <span class="fu">predict</span>(prophet_model_Online_UPS, future_Online_UPS)</span>
+<span id="cb24-18"><a href="entrega-5.html#cb24-18" tabindex="-1"></a></span>
+<span id="cb24-19"><a href="entrega-5.html#cb24-19" tabindex="-1"></a><span class="co"># Ver resultados</span></span>
+<span id="cb24-20"><a href="entrega-5.html#cb24-20" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tail</span>(forecast_prophet_Online_UPS, <span class="dv">12</span>))  <span class="co"># Últimas 12 predicciones</span></span></code></pre></div>
+<pre><code>##             ds    trend additive_terms additive_terms_lower
+## 175 2024-05-08 313.3944       58.69665             58.69665
+## 176 2024-05-15 314.0513       47.52787             47.52787
+## 177 2024-05-22 314.7083       51.02438             51.02438
+## 178 2024-05-29 315.3652       70.97049             70.97049
+## 179 2024-06-05 316.0222       88.12612             88.12612
+## 180 2024-06-12 316.6791       84.86256             84.86256
+## 181 2024-06-19 317.3361       67.26772             67.26772
+## 182 2024-06-26 317.9930       59.14672             59.14672
+## 183 2024-07-03 318.6499       74.88329             74.88329
+## 184 2024-07-10 319.3069      103.89304            103.89304
+## 185 2024-07-17 319.9638      124.00628            124.00628
+## 186 2024-07-24 320.6208      125.21899            125.21899
+##     additive_terms_upper   weekly weekly_lower weekly_upper     yearly
+## 175             58.69665 79.90146     79.90146     79.90146 -21.204805
+## 176             47.52787 79.90146     79.90146     79.90146 -32.373585
+## 177             51.02438 79.90146     79.90146     79.90146 -28.877083
+## 178             70.97049 79.90146     79.90146     79.90146  -8.930971
+## 179             88.12612 79.90146     79.90146     79.90146   8.224658
+## 180             84.86256 79.90146     79.90146     79.90146   4.961101
+## 181             67.26772 79.90146     79.90146     79.90146 -12.633736
+## 182             59.14672 79.90146     79.90146     79.90146 -20.754740
+## 183             74.88329 79.90146     79.90146     79.90146  -5.018164
+## 184            103.89304 79.90146     79.90146     79.90146  23.991581
+## 185            124.00628 79.90146     79.90146     79.90146  44.104817
+## 186            125.21899 79.90146     79.90146     79.90146  45.317536
+##     yearly_lower yearly_upper multiplicative_terms multiplicative_terms_lower
+## 175   -21.204805   -21.204805                    0                          0
+## 176   -32.373585   -32.373585                    0                          0
+## 177   -28.877083   -28.877083                    0                          0
+## 178    -8.930971    -8.930971                    0                          0
+## 179     8.224658     8.224658                    0                          0
+## 180     4.961101     4.961101                    0                          0
+## 181   -12.633736   -12.633736                    0                          0
+## 182   -20.754740   -20.754740                    0                          0
+## 183    -5.018164    -5.018164                    0                          0
+## 184    23.991581    23.991581                    0                          0
+## 185    44.104817    44.104817                    0                          0
+## 186    45.317536    45.317536                    0                          0
+##     multiplicative_terms_upper yhat_lower yhat_upper trend_lower trend_upper
+## 175                          0   258.1894   505.7446    313.3944    313.3944
+## 176                          0   233.9443   491.6617    314.0513    314.0513
+## 177                          0   232.1886   487.6579    314.7083    314.7083
+## 178                          0   265.1867   507.2934    315.3652    315.3652
+## 179                          0   276.4007   525.7172    316.0222    316.0222
+## 180                          0   282.2691   516.6093    316.6791    316.6791
+## 181                          0   263.6148   505.4687    317.3360    317.3361
+## 182                          0   253.4258   503.2460    317.9930    317.9930
+## 183                          0   272.0390   523.5288    318.6499    318.6500
+## 184                          0   297.8831   539.1502    319.3069    319.3069
+## 185                          0   316.2057   566.8022    319.9638    319.9639
+## 186                          0   327.8472   561.1162    320.6208    320.6208
+##         yhat
+## 175 372.0910
+## 176 361.5792
+## 177 365.7326
+## 178 386.3357
+## 179 404.1483
+## 180 401.5417
+## 181 384.6038
+## 182 377.1397
+## 183 393.5332
+## 184 423.1999
+## 185 443.9701
+## 186 445.8398</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="entrega-5.html#cb26-1" tabindex="-1"></a><span class="fu">plot</span>(prophet_model_Online_UPS, forecast_prophet_Online_UPS)  <span class="co"># Graficar las predicciones</span></span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="entrega-5.html#cb27-1" tabindex="-1"></a><span class="fu">prophet_plot_components</span>(prophet_model_Online_UPS, forecast_prophet_Online_UPS)  <span class="co"># Componentes del modelo</span></span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<div id="comparar-modelos-online-ups" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Comparar modelos Online UPS<a href="entrega-5.html#comparar-modelos-online-ups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="entrega-5.html#cb28-1" tabindex="-1"></a><span class="co"># Supongamos que tienes el siguiente:</span></span>
+<span id="cb28-2"><a href="entrega-5.html#cb28-2" tabindex="-1"></a><span class="co"># Valores reales</span></span>
+<span id="cb28-3"><a href="entrega-5.html#cb28-3" tabindex="-1"></a>real_values <span class="ot">&lt;-</span> Online_UPS_ts[(<span class="fu">length</span>(Online_UPS_ts) <span class="sc">-</span> <span class="dv">11</span>)<span class="sc">:</span><span class="fu">length</span>(Line_UPS_ts)] </span>
+<span id="cb28-4"><a href="entrega-5.html#cb28-4" tabindex="-1"></a><span class="co"># Predicciones</span></span>
+<span id="cb28-5"><a href="entrega-5.html#cb28-5" tabindex="-1"></a>arima_preds <span class="ot">&lt;-</span> prediccion_ARIMA_Online_UPS<span class="sc">$</span>mean  <span class="co"># Predicciones de ARIMA</span></span>
+<span id="cb28-6"><a href="entrega-5.html#cb28-6" tabindex="-1"></a>ets_preds <span class="ot">&lt;-</span> forecast_ETS_Online_UPS<span class="sc">$</span>mean  <span class="co"># Predicciones de ETS</span></span>
+<span id="cb28-7"><a href="entrega-5.html#cb28-7" tabindex="-1"></a>prophet_preds <span class="ot">&lt;-</span> <span class="fu">tail</span>(forecast_prophet_Online_UPS<span class="sc">$</span>yhat, <span class="dv">12</span>)  <span class="co"># Predicciones de Prophet</span></span>
+<span id="cb28-8"><a href="entrega-5.html#cb28-8" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="entrega-5.html#cb28-9" tabindex="-1"></a><span class="co"># Calcular métricas para ARIMA</span></span>
+<span id="cb28-10"><a href="entrega-5.html#cb28-10" tabindex="-1"></a>mae_arima <span class="ot">&lt;-</span> <span class="fu">mae</span>(real_values, arima_preds)</span>
+<span id="cb28-11"><a href="entrega-5.html#cb28-11" tabindex="-1"></a>rmse_arima <span class="ot">&lt;-</span> <span class="fu">rmse</span>(real_values, arima_preds)</span>
+<span id="cb28-12"><a href="entrega-5.html#cb28-12" tabindex="-1"></a>mape_arima <span class="ot">&lt;-</span> <span class="fu">mape</span>(real_values, arima_preds)</span>
+<span id="cb28-13"><a href="entrega-5.html#cb28-13" tabindex="-1"></a></span>
+<span id="cb28-14"><a href="entrega-5.html#cb28-14" tabindex="-1"></a><span class="co"># Calcular métricas para ETS</span></span>
+<span id="cb28-15"><a href="entrega-5.html#cb28-15" tabindex="-1"></a>mae_ets <span class="ot">&lt;-</span> <span class="fu">mae</span>(real_values, ets_preds)</span>
+<span id="cb28-16"><a href="entrega-5.html#cb28-16" tabindex="-1"></a>rmse_ets <span class="ot">&lt;-</span> <span class="fu">rmse</span>(real_values, ets_preds)</span>
+<span id="cb28-17"><a href="entrega-5.html#cb28-17" tabindex="-1"></a>mape_ets <span class="ot">&lt;-</span> <span class="fu">mape</span>(real_values, ets_preds)</span>
+<span id="cb28-18"><a href="entrega-5.html#cb28-18" tabindex="-1"></a></span>
+<span id="cb28-19"><a href="entrega-5.html#cb28-19" tabindex="-1"></a><span class="co"># Calcular métricas para Prophet</span></span>
+<span id="cb28-20"><a href="entrega-5.html#cb28-20" tabindex="-1"></a>mae_prophet <span class="ot">&lt;-</span> <span class="fu">mae</span>(real_values, prophet_preds)</span>
+<span id="cb28-21"><a href="entrega-5.html#cb28-21" tabindex="-1"></a>rmse_prophet <span class="ot">&lt;-</span> <span class="fu">rmse</span>(real_values, prophet_preds)</span>
+<span id="cb28-22"><a href="entrega-5.html#cb28-22" tabindex="-1"></a>mape_prophet <span class="ot">&lt;-</span> <span class="fu">mape</span>(real_values, prophet_preds)</span>
+<span id="cb28-23"><a href="entrega-5.html#cb28-23" tabindex="-1"></a></span>
+<span id="cb28-24"><a href="entrega-5.html#cb28-24" tabindex="-1"></a><span class="co"># Crear la tabla de resultados</span></span>
+<span id="cb28-25"><a href="entrega-5.html#cb28-25" tabindex="-1"></a>results_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb28-26"><a href="entrega-5.html#cb28-26" tabindex="-1"></a>  <span class="at">Model =</span> <span class="fu">c</span>(<span class="st">&quot;ARIMA&quot;</span>, <span class="st">&quot;ETS&quot;</span>, <span class="st">&quot;Prophet&quot;</span>),</span>
+<span id="cb28-27"><a href="entrega-5.html#cb28-27" tabindex="-1"></a>  <span class="at">MAE =</span> <span class="fu">c</span>(mae_arima, mae_ets, mae_prophet),</span>
+<span id="cb28-28"><a href="entrega-5.html#cb28-28" tabindex="-1"></a>  <span class="at">RMSE =</span> <span class="fu">c</span>(rmse_arima, rmse_ets, rmse_prophet),</span>
+<span id="cb28-29"><a href="entrega-5.html#cb28-29" tabindex="-1"></a>  <span class="at">MAPE =</span> <span class="fu">c</span>(mape_arima, mape_ets, mape_prophet)</span>
+<span id="cb28-30"><a href="entrega-5.html#cb28-30" tabindex="-1"></a>)</span>
+<span id="cb28-31"><a href="entrega-5.html#cb28-31" tabindex="-1"></a></span>
+<span id="cb28-32"><a href="entrega-5.html#cb28-32" tabindex="-1"></a><span class="co"># Mostrar la tabla</span></span>
+<span id="cb28-33"><a href="entrega-5.html#cb28-33" tabindex="-1"></a><span class="fu">print</span>(results_table)</span></code></pre></div>
+<pre><code>##     Model      MAE     RMSE     MAPE
+## 1   ARIMA 104.5433 155.5865 2.084176
+## 2     ETS 106.7111 160.5151 1.706425
+## 3 Prophet 207.0464 227.8909 3.614910</code></pre>
+</div>
+<div id="análisis-por-modelo-1" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Análisis por modelo<a href="entrega-5.html#análisis-por-modelo-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="arima-2" class="section level4 hasAnchor" number="6.4.2.1">
+<h4><span class="header-section-number">6.4.2.1</span> ARIMA<a href="entrega-5.html#arima-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MAE: 104.54
+RMSE: 155.59
+MAPE: 2.08%</p>
+<p>ARIMA tiene el mejor desempeño general en términos de MAE y RMSE, lo que significa que produce predicciones más cercanas a los valores reales.</p>
+<p>Aunque su MAPE (2.08%) es un poco más alto que el de ETS, sigue siendo un buen modelo para predicciones precisas tanto en términos absolutos como relativos.</p>
+</div>
+<div id="ets-2" class="section level4 hasAnchor" number="6.4.2.2">
+<h4><span class="header-section-number">6.4.2.2</span> ETS<a href="entrega-5.html#ets-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MAE: 106.71
+RMSE: 160.52
+MAPE: 1.71%</p>
+<p>ETS tiene un desempeño muy cercano a ARIMA, con un MAE y un RMSE ligeramente más altos.
+Su MAPE (1.71%) es el más bajo, lo que significa que es el modelo más consistente en términos porcentuales.</p>
+<p>Esto lo hace una excelente opción si se prioriza minimizar el error relativo a los valores reales.</p>
+</div>
+<div id="prophet-2" class="section level4 hasAnchor" number="6.4.2.3">
+<h4><span class="header-section-number">6.4.2.3</span> Prophet<a href="entrega-5.html#prophet-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MAE: 207.05
+RMSE: 227.89
+MAPE: 3.61%</p>
+<p>Prophet tiene el peor desempeño entre los modelos.</p>
+<p>Su MAE y RMSE son significativamente más altos, lo que indica que sus predicciones son menos precisas en términos absolutos.</p>
+<p>Su MAPE (3.61%) sugiere que tiene problemas para capturar patrones relativos a los valores reales, siendo menos confiable para este conjunto de datos.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="entrega-5.html#cb30-1" tabindex="-1"></a><span class="co"># Crear un data.frame con valores reales y predicciones</span></span>
+<span id="cb30-2"><a href="entrega-5.html#cb30-2" tabindex="-1"></a>comparison_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb30-3"><a href="entrega-5.html#cb30-3" tabindex="-1"></a>  <span class="at">Fecha =</span> Online_UPS<span class="sc">$</span>Fecha[(<span class="fu">length</span>(Online_UPS<span class="sc">$</span>Fecha) <span class="sc">-</span> <span class="dv">11</span>)<span class="sc">:</span><span class="fu">length</span>(Online_UPS<span class="sc">$</span>Fecha)],  </span>
+<span id="cb30-4"><a href="entrega-5.html#cb30-4" tabindex="-1"></a>  <span class="at">Real =</span> Online_UPS<span class="sc">$</span>Total[(<span class="fu">length</span>(Online_UPS<span class="sc">$</span>Total) <span class="sc">-</span> <span class="dv">11</span>)<span class="sc">:</span><span class="fu">length</span>(Online_UPS<span class="sc">$</span>Total)],  </span>
+<span id="cb30-5"><a href="entrega-5.html#cb30-5" tabindex="-1"></a>  <span class="at">ARIMA =</span> <span class="fu">as.numeric</span>(prediccion_ARIMA_Online_UPS<span class="sc">$</span>mean),  <span class="co"># Predicciones ARIMA</span></span>
+<span id="cb30-6"><a href="entrega-5.html#cb30-6" tabindex="-1"></a>  <span class="at">ETS =</span> <span class="fu">as.numeric</span>(forecast_ETS_Online_UPS<span class="sc">$</span>mean),  <span class="co"># Predicciones ETS</span></span>
+<span id="cb30-7"><a href="entrega-5.html#cb30-7" tabindex="-1"></a>  <span class="at">Prophet =</span> <span class="fu">tail</span>(forecast_prophet_Online_UPS<span class="sc">$</span>yhat, <span class="dv">12</span>)  <span class="co"># Predicciones Prophet</span></span>
+<span id="cb30-8"><a href="entrega-5.html#cb30-8" tabindex="-1"></a>)</span>
+<span id="cb30-9"><a href="entrega-5.html#cb30-9" tabindex="-1"></a></span>
+<span id="cb30-10"><a href="entrega-5.html#cb30-10" tabindex="-1"></a><span class="co"># Convertir los datos a formato largo para usar ggplot2</span></span>
+<span id="cb30-11"><a href="entrega-5.html#cb30-11" tabindex="-1"></a>comparison_data_long <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
+<span id="cb30-12"><a href="entrega-5.html#cb30-12" tabindex="-1"></a>  comparison_data,</span>
+<span id="cb30-13"><a href="entrega-5.html#cb30-13" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;Real&quot;</span>, <span class="st">&quot;ARIMA&quot;</span>, <span class="st">&quot;ETS&quot;</span>, <span class="st">&quot;Prophet&quot;</span>),</span>
+<span id="cb30-14"><a href="entrega-5.html#cb30-14" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">&quot;Modelo&quot;</span>,</span>
+<span id="cb30-15"><a href="entrega-5.html#cb30-15" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">&quot;Ventas&quot;</span></span>
+<span id="cb30-16"><a href="entrega-5.html#cb30-16" tabindex="-1"></a>)</span>
+<span id="cb30-17"><a href="entrega-5.html#cb30-17" tabindex="-1"></a></span>
+<span id="cb30-18"><a href="entrega-5.html#cb30-18" tabindex="-1"></a><span class="co"># Graficar las predicciones y valores reales</span></span>
+<span id="cb30-19"><a href="entrega-5.html#cb30-19" tabindex="-1"></a><span class="fu">ggplot</span>(comparison_data_long, <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">y =</span> Ventas, <span class="at">color =</span> Modelo, <span class="at">group =</span> Modelo)) <span class="sc">+</span></span>
+<span id="cb30-20"><a href="entrega-5.html#cb30-20" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb30-21"><a href="entrega-5.html#cb30-21" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb30-22"><a href="entrega-5.html#cb30-22" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb30-23"><a href="entrega-5.html#cb30-23" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Comparación de modelos (ARIMA, ETS y Prophet)&quot;</span>,</span>
+<span id="cb30-24"><a href="entrega-5.html#cb30-24" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Fecha&quot;</span>,</span>
+<span id="cb30-25"><a href="entrega-5.html#cb30-25" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Ventas&quot;</span>,</span>
+<span id="cb30-26"><a href="entrega-5.html#cb30-26" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Modelo&quot;</span></span>
+<span id="cb30-27"><a href="entrega-5.html#cb30-27" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb30-28"><a href="entrega-5.html#cb30-28" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+</div>
+<div id="conclusión-3" class="section level3 hasAnchor" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> Conclusión<a href="entrega-5.html#conclusión-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>ARIMA es el mejor modelo para minimizar el error absoluto (MAE) y el error penalizado (RMSE). Es ideal si se busca precisión absoluta.</p>
+<p>ETS es una alternativa viable, con un desempeño casi igual al de ARIMA, especialmente destacando en MAPE. Este modelo es útil si se prioriza minimizar errores relativos en términos porcentuales.</p>
+<p>Prophet tiene un desempeño considerablemente peor en todas las métricas. Podría no ser la mejor elección para estos datos, pero podría ajustarse mejor con parámetros personalizados si es necesario.</p>
+</div>
+</div>
+<div id="ets-storage-battery" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> ETS STORAGE BATTERY<a href="entrega-5.html#ets-storage-battery" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="entrega-5.html#cb31-1" tabindex="-1"></a><span class="co"># Ajustar ETS sin estacionalidad</span></span>
+<span id="cb31-2"><a href="entrega-5.html#cb31-2" tabindex="-1"></a>ETS_Storage_Battery <span class="ot">&lt;-</span> <span class="fu">ets</span>(Storage_Battery_ts, <span class="at">model =</span> <span class="st">&quot;ZZN&quot;</span>)  <span class="co"># Sin componente estacional</span></span>
+<span id="cb31-3"><a href="entrega-5.html#cb31-3" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="entrega-5.html#cb31-4" tabindex="-1"></a><span class="co"># Predicción para los próximos 12 períodos</span></span>
+<span id="cb31-5"><a href="entrega-5.html#cb31-5" tabindex="-1"></a>forecast_ETS_Storage_Battery <span class="ot">&lt;-</span> <span class="fu">forecast</span>(ETS_Storage_Battery, <span class="at">h =</span> <span class="dv">12</span>)</span>
+<span id="cb31-6"><a href="entrega-5.html#cb31-6" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="entrega-5.html#cb31-7" tabindex="-1"></a><span class="co"># Graficar los resultados</span></span>
+<span id="cb31-8"><a href="entrega-5.html#cb31-8" tabindex="-1"></a><span class="fu">plot</span>(forecast_ETS_Storage_Battery)</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="entrega-5.html#cb32-1" tabindex="-1"></a><span class="co"># Preparar los datos para Prophet</span></span>
+<span id="cb32-2"><a href="entrega-5.html#cb32-2" tabindex="-1"></a>prophet_Storage_Battery <span class="ot">&lt;-</span> Storage_Battery <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="entrega-5.html#cb32-3" tabindex="-1"></a>  <span class="fu">select</span>(Fecha, Total_Storage_Battery) <span class="sc">%&gt;%</span></span>
+<span id="cb32-4"><a href="entrega-5.html#cb32-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ds =</span> Fecha, <span class="at">y =</span> Total_Storage_Battery)  <span class="co"># Prophet requiere las columnas &#39;ds&#39; y &#39;y&#39;</span></span>
+<span id="cb32-5"><a href="entrega-5.html#cb32-5" tabindex="-1"></a>prophet_Storage_Battery<span class="sc">$</span>ds <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(prophet_Storage_Battery<span class="sc">$</span>ds)  </span>
+<span id="cb32-6"><a href="entrega-5.html#cb32-6" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="entrega-5.html#cb32-7" tabindex="-1"></a><span class="co"># Ajustar el modelo Prophet habilitando la estacionalidad diaria</span></span>
+<span id="cb32-8"><a href="entrega-5.html#cb32-8" tabindex="-1"></a>prophet_model_Storage_Battery <span class="ot">&lt;-</span> <span class="fu">prophet</span>(</span>
+<span id="cb32-9"><a href="entrega-5.html#cb32-9" tabindex="-1"></a>  prophet_Storage_Battery,</span>
+<span id="cb32-10"><a href="entrega-5.html#cb32-10" tabindex="-1"></a>  <span class="at">daily.seasonality =</span> <span class="cn">FALSE</span>  <span class="co"># No incluir estacionalidad diaria</span></span>
+<span id="cb32-11"><a href="entrega-5.html#cb32-11" tabindex="-1"></a>)</span>
+<span id="cb32-12"><a href="entrega-5.html#cb32-12" tabindex="-1"></a></span>
+<span id="cb32-13"><a href="entrega-5.html#cb32-13" tabindex="-1"></a><span class="co"># Crear un marco de tiempo futuro para las próximas 12 períodos (semanas)</span></span>
+<span id="cb32-14"><a href="entrega-5.html#cb32-14" tabindex="-1"></a>future_Storage_Battery <span class="ot">&lt;-</span> <span class="fu">make_future_dataframe</span>(prophet_model_Storage_Battery, <span class="at">periods =</span> <span class="dv">12</span>, <span class="at">freq =</span> <span class="st">&quot;week&quot;</span>)</span>
+<span id="cb32-15"><a href="entrega-5.html#cb32-15" tabindex="-1"></a></span>
+<span id="cb32-16"><a href="entrega-5.html#cb32-16" tabindex="-1"></a><span class="co"># Realizar las predicciones</span></span>
+<span id="cb32-17"><a href="entrega-5.html#cb32-17" tabindex="-1"></a>forecast_prophet_Storage_Battery <span class="ot">&lt;-</span> <span class="fu">predict</span>(prophet_model_Storage_Battery, future_Storage_Battery)</span>
+<span id="cb32-18"><a href="entrega-5.html#cb32-18" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="entrega-5.html#cb32-19" tabindex="-1"></a><span class="co"># Ver resultados</span></span>
+<span id="cb32-20"><a href="entrega-5.html#cb32-20" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tail</span>(forecast_prophet_Storage_Battery, <span class="dv">12</span>))  <span class="co"># Últimas 12 predicciones</span></span></code></pre></div>
+<pre><code>##             ds    trend additive_terms additive_terms_lower
+## 175 2024-05-08 2717.591       2880.063             2880.063
+## 176 2024-05-15 2728.030       2809.978             2809.978
+## 177 2024-05-22 2738.468       2570.030             2570.030
+## 178 2024-05-29 2748.907       2459.308             2459.308
+## 179 2024-06-05 2759.345       2666.287             2666.287
+## 180 2024-06-12 2769.784       3102.945             3102.945
+## 181 2024-06-19 2780.222       3505.079             3505.079
+## 182 2024-06-26 2790.661       3652.471             3652.471
+## 183 2024-07-03 2801.099       3499.222             3499.222
+## 184 2024-07-10 2811.538       3158.870             3158.870
+## 185 2024-07-17 2821.976       2829.443             2829.443
+## 186 2024-07-24 2832.415       2721.730             2721.730
+##     additive_terms_upper   weekly weekly_lower weekly_upper    yearly
+## 175             2880.063 2996.182     2996.182     2996.182 -116.1183
+## 176             2809.978 2996.182     2996.182     2996.182 -186.2035
+## 177             2570.030 2996.182     2996.182     2996.182 -426.1514
+## 178             2459.308 2996.182     2996.182     2996.182 -536.8738
+## 179             2666.287 2996.182     2996.182     2996.182 -329.8951
+## 180             3102.945 2996.182     2996.182     2996.182  106.7629
+## 181             3505.079 2996.182     2996.182     2996.182  508.8969
+## 182             3652.471 2996.182     2996.182     2996.182  656.2893
+## 183             3499.222 2996.182     2996.182     2996.182  503.0401
+## 184             3158.870 2996.182     2996.182     2996.182  162.6888
+## 185             2829.443 2996.182     2996.182     2996.182 -166.7383
+## 186             2721.730 2996.182     2996.182     2996.182 -274.4520
+##     yearly_lower yearly_upper multiplicative_terms multiplicative_terms_lower
+## 175    -116.1183    -116.1183                    0                          0
+## 176    -186.2035    -186.2035                    0                          0
+## 177    -426.1514    -426.1514                    0                          0
+## 178    -536.8738    -536.8738                    0                          0
+## 179    -329.8951    -329.8951                    0                          0
+## 180     106.7629     106.7629                    0                          0
+## 181     508.8969     508.8969                    0                          0
+## 182     656.2893     656.2893                    0                          0
+## 183     503.0401     503.0401                    0                          0
+## 184     162.6888     162.6888                    0                          0
+## 185    -166.7383    -166.7383                    0                          0
+## 186    -274.4520    -274.4520                    0                          0
+##     multiplicative_terms_upper yhat_lower yhat_upper trend_lower trend_upper
+## 175                          0   4265.143   6921.868    2717.591    2717.591
+## 176                          0   4286.306   6876.239    2728.029    2728.030
+## 177                          0   3991.366   6582.626    2738.468    2738.469
+## 178                          0   3874.852   6430.984    2748.906    2748.908
+## 179                          0   4168.629   6706.719    2759.344    2759.347
+## 180                          0   4592.404   7247.066    2769.781    2769.786
+## 181                          0   4942.661   7627.312    2780.219    2780.226
+## 182                          0   5147.697   7791.047    2790.657    2790.665
+## 183                          0   4940.255   7634.804    2801.094    2801.105
+## 184                          0   4685.980   7321.877    2811.531    2811.544
+## 185                          0   4367.561   6907.163    2821.969    2821.984
+## 186                          0   4153.373   6851.411    2832.406    2832.424
+##         yhat
+## 175 5597.654
+## 176 5538.008
+## 177 5308.498
+## 178 5208.215
+## 179 5425.632
+## 180 5872.728
+## 181 6285.301
+## 182 6443.132
+## 183 6300.321
+## 184 5970.408
+## 185 5651.420
+## 186 5554.145</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="entrega-5.html#cb34-1" tabindex="-1"></a><span class="fu">plot</span>(prophet_model_Storage_Battery, forecast_prophet_Storage_Battery)  </span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="entrega-5.html#cb35-1" tabindex="-1"></a><span class="fu">prophet_plot_components</span>(prophet_model_Storage_Battery, forecast_prophet_Storage_Battery)</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-15-2.png" width="672" /></p>
+<div id="comparar-modelos-storage_battery" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Comparar modelos Storage_Battery<a href="entrega-5.html#comparar-modelos-storage_battery" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="entrega-5.html#cb36-1" tabindex="-1"></a><span class="co"># Supongamos que tienes el siguiente:</span></span>
+<span id="cb36-2"><a href="entrega-5.html#cb36-2" tabindex="-1"></a><span class="co"># Valores reales</span></span>
+<span id="cb36-3"><a href="entrega-5.html#cb36-3" tabindex="-1"></a>real_values <span class="ot">&lt;-</span> Storage_Battery_ts[(<span class="fu">length</span>(Storage_Battery_ts) <span class="sc">-</span> <span class="dv">11</span>)<span class="sc">:</span><span class="fu">length</span>(Storage_Battery_ts)] </span>
+<span id="cb36-4"><a href="entrega-5.html#cb36-4" tabindex="-1"></a><span class="co"># Predicciones</span></span>
+<span id="cb36-5"><a href="entrega-5.html#cb36-5" tabindex="-1"></a>arima_preds <span class="ot">&lt;-</span> prediccion_ARIMA_Storage_Battery<span class="sc">$</span>mean  <span class="co"># Predicciones de ARIMA</span></span>
+<span id="cb36-6"><a href="entrega-5.html#cb36-6" tabindex="-1"></a>ets_preds <span class="ot">&lt;-</span> forecast_ETS_Storage_Battery<span class="sc">$</span>mean  <span class="co"># Predicciones de ETS</span></span>
+<span id="cb36-7"><a href="entrega-5.html#cb36-7" tabindex="-1"></a>prophet_preds <span class="ot">&lt;-</span> <span class="fu">tail</span>(forecast_prophet_Storage_Battery<span class="sc">$</span>yhat, <span class="dv">12</span>)  <span class="co"># Predicciones de Prophet</span></span>
+<span id="cb36-8"><a href="entrega-5.html#cb36-8" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="entrega-5.html#cb36-9" tabindex="-1"></a><span class="co"># Calcular métricas para ARIMA</span></span>
+<span id="cb36-10"><a href="entrega-5.html#cb36-10" tabindex="-1"></a>mae_arima <span class="ot">&lt;-</span> <span class="fu">mae</span>(real_values, arima_preds)</span>
+<span id="cb36-11"><a href="entrega-5.html#cb36-11" tabindex="-1"></a>rmse_arima <span class="ot">&lt;-</span> <span class="fu">rmse</span>(real_values, arima_preds)</span>
+<span id="cb36-12"><a href="entrega-5.html#cb36-12" tabindex="-1"></a>mape_arima <span class="ot">&lt;-</span> <span class="fu">mape</span>(real_values, arima_preds)</span>
+<span id="cb36-13"><a href="entrega-5.html#cb36-13" tabindex="-1"></a></span>
+<span id="cb36-14"><a href="entrega-5.html#cb36-14" tabindex="-1"></a><span class="co"># Calcular métricas para ETS</span></span>
+<span id="cb36-15"><a href="entrega-5.html#cb36-15" tabindex="-1"></a>mae_ets <span class="ot">&lt;-</span> <span class="fu">mae</span>(real_values, ets_preds)</span>
+<span id="cb36-16"><a href="entrega-5.html#cb36-16" tabindex="-1"></a>rmse_ets <span class="ot">&lt;-</span> <span class="fu">rmse</span>(real_values, ets_preds)</span>
+<span id="cb36-17"><a href="entrega-5.html#cb36-17" tabindex="-1"></a>mape_ets <span class="ot">&lt;-</span> <span class="fu">mape</span>(real_values, ets_preds)</span>
+<span id="cb36-18"><a href="entrega-5.html#cb36-18" tabindex="-1"></a></span>
+<span id="cb36-19"><a href="entrega-5.html#cb36-19" tabindex="-1"></a><span class="co"># Calcular métricas para Prophet</span></span>
+<span id="cb36-20"><a href="entrega-5.html#cb36-20" tabindex="-1"></a>mae_prophet <span class="ot">&lt;-</span> <span class="fu">mae</span>(real_values, prophet_preds)</span>
+<span id="cb36-21"><a href="entrega-5.html#cb36-21" tabindex="-1"></a>rmse_prophet <span class="ot">&lt;-</span> <span class="fu">rmse</span>(real_values, prophet_preds)</span>
+<span id="cb36-22"><a href="entrega-5.html#cb36-22" tabindex="-1"></a>mape_prophet <span class="ot">&lt;-</span> <span class="fu">mape</span>(real_values, prophet_preds)</span>
+<span id="cb36-23"><a href="entrega-5.html#cb36-23" tabindex="-1"></a></span>
+<span id="cb36-24"><a href="entrega-5.html#cb36-24" tabindex="-1"></a><span class="co"># Crear la tabla de resultados</span></span>
+<span id="cb36-25"><a href="entrega-5.html#cb36-25" tabindex="-1"></a>results_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb36-26"><a href="entrega-5.html#cb36-26" tabindex="-1"></a>  <span class="at">Model =</span> <span class="fu">c</span>(<span class="st">&quot;ARIMA&quot;</span>, <span class="st">&quot;ETS&quot;</span>, <span class="st">&quot;Prophet&quot;</span>),</span>
+<span id="cb36-27"><a href="entrega-5.html#cb36-27" tabindex="-1"></a>  <span class="at">MAE =</span> <span class="fu">c</span>(mae_arima, mae_ets, mae_prophet),</span>
+<span id="cb36-28"><a href="entrega-5.html#cb36-28" tabindex="-1"></a>  <span class="at">RMSE =</span> <span class="fu">c</span>(rmse_arima, rmse_ets, rmse_prophet),</span>
+<span id="cb36-29"><a href="entrega-5.html#cb36-29" tabindex="-1"></a>  <span class="at">MAPE =</span> <span class="fu">c</span>(mape_arima, mape_ets, mape_prophet)</span>
+<span id="cb36-30"><a href="entrega-5.html#cb36-30" tabindex="-1"></a>)</span>
+<span id="cb36-31"><a href="entrega-5.html#cb36-31" tabindex="-1"></a></span>
+<span id="cb36-32"><a href="entrega-5.html#cb36-32" tabindex="-1"></a><span class="co"># Mostrar la tabla</span></span>
+<span id="cb36-33"><a href="entrega-5.html#cb36-33" tabindex="-1"></a><span class="fu">print</span>(results_table)</span></code></pre></div>
+<pre><code>##     Model      MAE     RMSE      MAPE
+## 1   ARIMA 1379.938 1857.148 0.7527007
+## 2     ETS 1005.296 1256.073 1.1546709
+## 3 Prophet 4154.622 4346.210 5.1103111</code></pre>
+</div>
+<div id="análisis-por-modelo-2" class="section level3 hasAnchor" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> Análisis por modelo<a href="entrega-5.html#análisis-por-modelo-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="arima-3" class="section level4 hasAnchor" number="6.5.2.1">
+<h4><span class="header-section-number">6.5.2.1</span> ARIMA<a href="entrega-5.html#arima-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MAE: 1379.938
+RMSE: 1857.148
+MAPE: 0.75%</p>
+<p>ARIMA muestra un rendimiento aceptable en términos de errores absolutos (MAE) y relativos (MAPE).</p>
+<p>Su RMSE (1857.148) es mayor en comparación con ETS, lo que indica que puede ser más sensible a errores grandes.</p>
+<p>Con un MAPE de solo 0.75%, tiene el mejor desempeño relativo, lo que lo hace confiable si los errores porcentuales son importantes.</p>
+</div>
+<div id="ets-3" class="section level4 hasAnchor" number="6.5.2.2">
+<h4><span class="header-section-number">6.5.2.2</span> ETS<a href="entrega-5.html#ets-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MAE: 1005.296
+RMSE: 1256.073
+MAPE: 1.15%</p>
+<p>ETS supera a ARIMA en MAE y RMSE, lo que significa que produce predicciones más cercanas en términos absolutos.</p>
+<p>Aunque su MAPE (1.15%) es más alto que el de ARIMA, sigue siendo razonablemente bajo, lo que lo convierte en un modelo competitivo.</p>
+<p>ETS es la mejor opción si se priorizan errores absolutos pequeños.</p>
+</div>
+<div id="prophet-3" class="section level4 hasAnchor" number="6.5.2.3">
+<h4><span class="header-section-number">6.5.2.3</span> Prophet<a href="entrega-5.html#prophet-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MAE: 4154.621
+RMSE: 4346.210
+MAPE: 5.11%</p>
+<p>Prophet tiene un desempeño significativamente peor que ARIMA y ETS:
+Sus MAE y RMSE son considerablemente más altos, lo que indica predicciones menos precisas en términos absolutos.</p>
+<p>Su MAPE (5.11%) es el más alto, mostrando dificultades para capturar patrones relativos a los valores reales.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="entrega-5.html#cb38-1" tabindex="-1"></a><span class="co"># Crear un data.frame con valores reales y predicciones</span></span>
+<span id="cb38-2"><a href="entrega-5.html#cb38-2" tabindex="-1"></a>comparison_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb38-3"><a href="entrega-5.html#cb38-3" tabindex="-1"></a>  <span class="at">Fecha =</span> Storage_Battery<span class="sc">$</span>Fecha[(<span class="fu">length</span>(Storage_Battery<span class="sc">$</span>Fecha) <span class="sc">-</span> <span class="dv">11</span>)<span class="sc">:</span><span class="fu">length</span>(Storage_Battery<span class="sc">$</span>Fecha)],  </span>
+<span id="cb38-4"><a href="entrega-5.html#cb38-4" tabindex="-1"></a>  <span class="at">Real =</span> Storage_Battery<span class="sc">$</span>Total[(<span class="fu">length</span>(Storage_Battery<span class="sc">$</span>Total) <span class="sc">-</span> <span class="dv">11</span>)<span class="sc">:</span><span class="fu">length</span>(Storage_Battery<span class="sc">$</span>Total)],  </span>
+<span id="cb38-5"><a href="entrega-5.html#cb38-5" tabindex="-1"></a>  <span class="at">ARIMA =</span> <span class="fu">as.numeric</span>(prediccion_ARIMA_Storage_Battery<span class="sc">$</span>mean),  <span class="co"># Predicciones ARIMA</span></span>
+<span id="cb38-6"><a href="entrega-5.html#cb38-6" tabindex="-1"></a>  <span class="at">ETS =</span> <span class="fu">as.numeric</span>(forecast_ETS_Storage_Battery<span class="sc">$</span>mean),  <span class="co"># Predicciones ETS</span></span>
+<span id="cb38-7"><a href="entrega-5.html#cb38-7" tabindex="-1"></a>  <span class="at">Prophet =</span> <span class="fu">tail</span>(forecast_prophet_Storage_Battery<span class="sc">$</span>yhat, <span class="dv">12</span>)  <span class="co"># Predicciones Prophet</span></span>
+<span id="cb38-8"><a href="entrega-5.html#cb38-8" tabindex="-1"></a>)</span>
+<span id="cb38-9"><a href="entrega-5.html#cb38-9" tabindex="-1"></a></span>
+<span id="cb38-10"><a href="entrega-5.html#cb38-10" tabindex="-1"></a><span class="co"># Convertir los datos a formato largo para usar ggplot2</span></span>
+<span id="cb38-11"><a href="entrega-5.html#cb38-11" tabindex="-1"></a>comparison_data_long <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
+<span id="cb38-12"><a href="entrega-5.html#cb38-12" tabindex="-1"></a>  comparison_data,</span>
+<span id="cb38-13"><a href="entrega-5.html#cb38-13" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;Real&quot;</span>, <span class="st">&quot;ARIMA&quot;</span>, <span class="st">&quot;ETS&quot;</span>, <span class="st">&quot;Prophet&quot;</span>),</span>
+<span id="cb38-14"><a href="entrega-5.html#cb38-14" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">&quot;Modelo&quot;</span>,</span>
+<span id="cb38-15"><a href="entrega-5.html#cb38-15" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">&quot;Ventas&quot;</span></span>
+<span id="cb38-16"><a href="entrega-5.html#cb38-16" tabindex="-1"></a>)</span>
+<span id="cb38-17"><a href="entrega-5.html#cb38-17" tabindex="-1"></a></span>
+<span id="cb38-18"><a href="entrega-5.html#cb38-18" tabindex="-1"></a><span class="co"># Graficar las predicciones y valores reales</span></span>
+<span id="cb38-19"><a href="entrega-5.html#cb38-19" tabindex="-1"></a><span class="fu">ggplot</span>(comparison_data_long, <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">y =</span> Ventas, <span class="at">color =</span> Modelo, <span class="at">group =</span> Modelo)) <span class="sc">+</span></span>
+<span id="cb38-20"><a href="entrega-5.html#cb38-20" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb38-21"><a href="entrega-5.html#cb38-21" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb38-22"><a href="entrega-5.html#cb38-22" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb38-23"><a href="entrega-5.html#cb38-23" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Comparación de modelos (ARIMA, ETS y Prophet)&quot;</span>,</span>
+<span id="cb38-24"><a href="entrega-5.html#cb38-24" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Fecha&quot;</span>,</span>
+<span id="cb38-25"><a href="entrega-5.html#cb38-25" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Ventas&quot;</span>,</span>
+<span id="cb38-26"><a href="entrega-5.html#cb38-26" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Modelo&quot;</span></span>
+<span id="cb38-27"><a href="entrega-5.html#cb38-27" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb38-28"><a href="entrega-5.html#cb38-28" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+</div>
+<div id="conclusión-4" class="section level3 hasAnchor" number="6.5.3">
+<h3><span class="header-section-number">6.5.3</span> Conclusión<a href="entrega-5.html#conclusión-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>ETS tiene el mejor rendimiento en MAE y RMSE, lo que lo hace ideal si el objetivo es minimizar los errores absolutos.</p>
+<p>ARIMA destaca en términos de MAPE, siendo el más consistente para reducir errores porcentuales relativos.</p>
+<p>Prophet tiene el peor desempeño en todas las métricas. Este modelo podría requerir ajustes adicionales (como estacionalidad personalizada o ajustes de hiperparámetros) para mejorar su rendimiento.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modelos-estacionarios-en-series-de-tiempo---arima.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-actividad6.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Minilibro.pdf", "Minilibro.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
