@@ -331,20 +331,20 @@ alternative hypothesis: stationary</code></pre>
 <p>###Análisis de la Categoría AVR</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="preprocesamiento-y-visualización.html#cb9-1" tabindex="-1"></a><span class="co"># Graficar ACF y PACF</span></span>
 <span id="cb9-2"><a href="preprocesamiento-y-visualización.html#cb9-2" tabindex="-1"></a><span class="fu">ggAcf</span>(AVR_ts, <span class="at">main=</span><span class="st">&#39;ACF - AVR&#39;</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-5-1.png" width="768" style="display: block; margin: auto;" />
 <br></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="preprocesamiento-y-visualización.html#cb10-1" tabindex="-1"></a><span class="fu">ggPacf</span>(AVR_ts, <span class="at">main=</span><span class="st">&#39;PACF - AVR&#39;</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-6-1.png" width="768" style="display: block; margin: auto;" />
 <br></p>
 <p>La mayoría de las autocorrelaciones están cerca de cero, y no parece haber un patrón claro. Esto sugiere que la serie podría ser estacionaria, con poca dependencia en los lags pasados.</p>
 <p>En la grafica de PACF no hay un corte claro en los primeros lags ni un patrón significativo de correlaciones altas.</p>
 <p>La serie AVR parece ser estacionaria y con poca dependencia en sus lags, por lo que modelos simples como un modelo ARMA podrían ser apropiados.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="preprocesamiento-y-visualización.html#cb11-1" tabindex="-1"></a><span class="co"># Graficar ACF y PACF</span></span>
 <span id="cb11-2"><a href="preprocesamiento-y-visualización.html#cb11-2" tabindex="-1"></a><span class="fu">ggAcf</span>(Line_UPS_ts, <span class="at">main=</span><span class="st">&#39;ACF - Line UPS&#39;</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-7-1.png" width="768" style="display: block; margin: auto;" />
 <br></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="preprocesamiento-y-visualización.html#cb12-1" tabindex="-1"></a><span class="fu">ggPacf</span>(Line_UPS_ts, <span class="at">main=</span><span class="st">&#39;PACF - Line UPS&#39;</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-8-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 La grafica ACF no muestra un patrón claro, con la mayoría de las correlaciones cerca de cero. Esto también sugiere que la serie es estacionaria.</p>
 <p>En la grafica PACF no se observa un corte significativo ni un patrón dominante en los primeros lags.</p>
@@ -353,10 +353,10 @@ La grafica ACF no muestra un patrón claro, con la mayoría de las correlaciones
 <h3><span class="header-section-number">3.2.1</span> Análisis de la Categoría Online UPS<a href="preprocesamiento-y-visualización.html#análisis-de-la-categoría-online-ups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="preprocesamiento-y-visualización.html#cb13-1" tabindex="-1"></a><span class="co"># Graficar ACF y PACF</span></span>
 <span id="cb13-2"><a href="preprocesamiento-y-visualización.html#cb13-2" tabindex="-1"></a><span class="fu">ggAcf</span>(Online_UPS_ts, <span class="at">main=</span><span class="st">&#39;ACF - Online UPS&#39;</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-9-1.png" width="768" style="display: block; margin: auto;" />
 <br></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="preprocesamiento-y-visualización.html#cb14-1" tabindex="-1"></a><span class="fu">ggPacf</span>(Online_UPS_ts, <span class="at">main=</span><span class="st">&#39;PACF - Online UPS&#39;</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-10-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 La grafica de ACF muestra autocorrelaciones en algunos lags, aunque en general la mayoría están dentro de los límites de significancia.</p>
 <p>La grafica de PACF similar a la ACF, con algunas correlaciones en los primeros lags pero sin un patrón de corte claro.</p>
@@ -367,10 +367,10 @@ La grafica de ACF muestra autocorrelaciones en algunos lags, aunque en general l
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="preprocesamiento-y-visualización.html#cb15-1" tabindex="-1"></a><span class="co"># Graficar ACF y PACF</span></span>
 <span id="cb15-2"><a href="preprocesamiento-y-visualización.html#cb15-2" tabindex="-1"></a>  </span>
 <span id="cb15-3"><a href="preprocesamiento-y-visualización.html#cb15-3" tabindex="-1"></a><span class="fu">ggAcf</span>(Storage_Battery_ts, <span class="at">main=</span><span class="st">&#39;ACF - Storage Battery&#39;</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-11-1.png" width="768" style="display: block; margin: auto;" />
 <br></p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="preprocesamiento-y-visualización.html#cb16-1" tabindex="-1"></a><span class="fu">ggPacf</span>(Storage_Battery_ts, <span class="at">main=</span><span class="st">&#39;PACF  - Storage Battery&#39;</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-12-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 La grafica ACF muestra un decaimiento gradual, lo cual podría ser indicativo de una serie no estacionaria. Este patrón es característico de una serie con una tendencia subyacente.</p>
 <p>En la grafica PACF se observa un corte más claro en los primeros lags, lo que sugiere que un modelo autoregresivo (AR) podría capturar parte de la dependencia en los datos.</p>
@@ -394,7 +394,7 @@ Observado=Tendencia+Estacionalidad+ComponenteAleatorio
 <span id="cb17-3"><a href="preprocesamiento-y-visualización.html#cb17-3" tabindex="-1"></a></span>
 <span id="cb17-4"><a href="preprocesamiento-y-visualización.html#cb17-4" tabindex="-1"></a><span class="co"># Graficar los componentes </span></span>
 <span id="cb17-5"><a href="preprocesamiento-y-visualización.html#cb17-5" tabindex="-1"></a><span class="fu">autoplot</span>(descomposicion_aditiva_AVR)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-13-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 En la gráfica de la tendencia se puedes ver que hay una caída en la tendencia alrededor de 2022, seguida de una recuperación en 2023.</p>
 <p>En la gráfica de la estacionalidad se puede observar que los picos y valles se repiten en intervalos regulares.</p>
@@ -407,7 +407,7 @@ En la gráfica de la tendencia se puedes ver que hay una caída en la tendencia 
 <span id="cb18-3"><a href="preprocesamiento-y-visualización.html#cb18-3" tabindex="-1"></a></span>
 <span id="cb18-4"><a href="preprocesamiento-y-visualización.html#cb18-4" tabindex="-1"></a><span class="co"># Graficar los componentes</span></span>
 <span id="cb18-5"><a href="preprocesamiento-y-visualización.html#cb18-5" tabindex="-1"></a><span class="fu">autoplot</span>(descomposicion_aditiva_Line_UPS)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-14-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 En la serie se observa una tendencia a lo largo de los años y un comportamiento de picos y valles que podrían estar asociados a factores estacionales.</p>
 <p>La tendencia parece mostrar un descenso gradual al principio, seguido de una recuperación leve en 2023 y una estabilización hacia 2024.</p>
@@ -421,7 +421,7 @@ En la serie se observa una tendencia a lo largo de los años y un comportamiento
 <span id="cb19-3"><a href="preprocesamiento-y-visualización.html#cb19-3" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="preprocesamiento-y-visualización.html#cb19-4" tabindex="-1"></a><span class="co"># Graficar los componentes</span></span>
 <span id="cb19-5"><a href="preprocesamiento-y-visualización.html#cb19-5" tabindex="-1"></a><span class="fu">autoplot</span>(descomposicion_aditiva_Online_UPS)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-15-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 La magnitud de los valores varía, pero no de forma significativa en amplitud, lo que hace que una descomposición aditiva sea razonable para esta serie.</p>
 <p>La tendencia muestra un incremento gradual a lo largo del tiempo, lo que indica un crecimiento sostenido en el valor promedio de la serie. Esta podría representar un cambio a largo plazo en el fenómeno observado.</p>
@@ -435,7 +435,7 @@ La magnitud de los valores varía, pero no de forma significativa en amplitud, l
 <span id="cb20-3"><a href="preprocesamiento-y-visualización.html#cb20-3" tabindex="-1"></a></span>
 <span id="cb20-4"><a href="preprocesamiento-y-visualización.html#cb20-4" tabindex="-1"></a><span class="co"># Graficar los componentes</span></span>
 <span id="cb20-5"><a href="preprocesamiento-y-visualización.html#cb20-5" tabindex="-1"></a><span class="fu">autoplot</span>(descomposicion_aditiva_Storage_Battery)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-16-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 La serie muestra un aumento en la variabilidad hacia el final del período, con picos más altos en 2023 y 2024. Esto podría sugerir un aumento en la intensidad o frecuencia de ciertos eventos. Aunque la magnitud de los valores varía, la serie mantiene un patrón estacional estable, lo cual es un buen indicio para la aplicabilidad de una descomposición aditiva.</p>
 <p>La tendencia muestra un incremento sostenido a lo largo del tiempo, alcanzando un máximo en el último periodo. Esto podría reflejar un crecimiento subyacente en la serie. Este comportamiento sugiere que el fenómeno tiene un componente de crecimiento a largo plazo, lo cual podría deberse a factores externos o tendencias generales en el contexto del fenómeno observado.</p>
@@ -455,7 +455,7 @@ Observado=Tendencia*Estacionalidad*ComponenteAleatorio
 <span id="cb21-3"><a href="preprocesamiento-y-visualización.html#cb21-3" tabindex="-1"></a></span>
 <span id="cb21-4"><a href="preprocesamiento-y-visualización.html#cb21-4" tabindex="-1"></a><span class="co"># Graficar los componentes</span></span>
 <span id="cb21-5"><a href="preprocesamiento-y-visualización.html#cb21-5" tabindex="-1"></a><span class="fu">autoplot</span>(descomposicion_multiplicativa_AVR)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-17-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 La tendencia de la serie, que parece mostrar una disminución en algún punto de 2022, seguida de una ligera recuperación al igual que en la descomposición aditiva.</p>
 <p>La componente estacional muestra un patrón repetitivo en intervalos regulares, lo cual es típico en series de tiempo con estacionalidad fuerte.</p>
@@ -467,7 +467,7 @@ La tendencia de la serie, que parece mostrar una disminución en algún punto de
 <span id="cb22-3"><a href="preprocesamiento-y-visualización.html#cb22-3" tabindex="-1"></a></span>
 <span id="cb22-4"><a href="preprocesamiento-y-visualización.html#cb22-4" tabindex="-1"></a><span class="co"># Graficar los componentes</span></span>
 <span id="cb22-5"><a href="preprocesamiento-y-visualización.html#cb22-5" tabindex="-1"></a><span class="fu">autoplot</span>(descomposicion_multiplicativa_Line_UPS)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-18-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 La tendencia en esta descomposición sigue una forma similar a la tendencia de la descomposición aditiva, con una disminución hacia 2022 y luego una recuperación gradual.</p>
 <p>La estacionalidad en esta gráfica tiene valores en un rango de 0.5 a 2.5, manteniendo un patrón de repetición similar a la descomposición aditiva.</p>
@@ -480,7 +480,7 @@ La tendencia en esta descomposición sigue una forma similar a la tendencia de l
 <span id="cb23-3"><a href="preprocesamiento-y-visualización.html#cb23-3" tabindex="-1"></a></span>
 <span id="cb23-4"><a href="preprocesamiento-y-visualización.html#cb23-4" tabindex="-1"></a><span class="co"># Graficar los componentes</span></span>
 <span id="cb23-5"><a href="preprocesamiento-y-visualización.html#cb23-5" tabindex="-1"></a><span class="fu">autoplot</span>(descomposicion_multiplicativa_Online_UPS)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-19-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 La tendencia sigue una trayectoria creciente, similar a la descomposición aditiva, lo que confirma un crecimiento sostenido en las ventas de Online UPS desde 2021 hasta 2024. Esto indica un aumento en la demanda de los productos a lo largo del tiempo.</p>
 <p>La estacionalidad se representa en términos de proporciones con variaziones entre 0 y 2, mostrando que las variaciones estacionales afectan las ventas en función del nivel base de la serie.</p>
@@ -493,7 +493,7 @@ La tendencia sigue una trayectoria creciente, similar a la descomposición aditi
 <span id="cb24-3"><a href="preprocesamiento-y-visualización.html#cb24-3" tabindex="-1"></a></span>
 <span id="cb24-4"><a href="preprocesamiento-y-visualización.html#cb24-4" tabindex="-1"></a><span class="co"># Graficar los componentes</span></span>
 <span id="cb24-5"><a href="preprocesamiento-y-visualización.html#cb24-5" tabindex="-1"></a><span class="fu">autoplot</span>(descomposicion_multiplicativa_Storage_Battery)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-20-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 La tendencia es marcadamente ascendente, lo cual sugiere un crecimiento continuo en la demanda de baterías de almacenamiento entre 2021 y 2024.</p>
 <p>El patrón estacional sugiere que existen épocas del año donde la demanda de baterías de almacenamiento es consistentemente alta o baja, posiblemente por factores como las estaciones climáticas, eventos industriales o variaciones en la demanda energética.</p>

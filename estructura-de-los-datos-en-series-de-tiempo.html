@@ -2043,7 +2043,7 @@ Para la agrupación de los datos se identificarán las categorías de los ítems
 <span id="cb15-5"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb15-5" tabindex="-1"></a><span class="fu">autoplot</span>(AVR_ts, <span class="at">series =</span> <span class="st">&quot;AVR&quot;</span> , <span class="at">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Ventas&quot;</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;Semana&quot;</span>)<span class="sc">+</span></span>
 <span id="cb15-6"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb15-6" tabindex="-1"></a>  <span class="fu">autolayer</span>(<span class="fu">ma</span>(AVR_ts,<span class="dv">7</span>), <span class="at">series =</span> <span class="st">&quot;7-SMA&quot;</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
 <span id="cb15-7"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb15-7" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Datos ventas AVR y Media Móvil 7 periodos&quot;</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-13-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p><br> Los datos de ventas de Line UPS tienen picos menos extremos que en AVR, con un máximo alrededor de 12,500. La serie es más constante.</p>
 <p>La media móvil sigue una tendencia ligeramente descendente en 2021, estabilizándose después con fluctuaciones menos pronunciadas. <br></p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb16-1" tabindex="-1"></a><span class="co"># Convertir a serie de tiempo</span></span>
@@ -2053,7 +2053,7 @@ Para la agrupación de los datos se identificarán las categorías de los ítems
 <span id="cb16-5"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb16-5" tabindex="-1"></a><span class="fu">autoplot</span>(Line_UPS_ts, <span class="at">series =</span> <span class="st">&quot;AVR&quot;</span> , <span class="at">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Ventas&quot;</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;Semana&quot;</span>)<span class="sc">+</span></span>
 <span id="cb16-6"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb16-6" tabindex="-1"></a>  <span class="fu">autolayer</span>(<span class="fu">ma</span>(Line_UPS_ts,<span class="dv">7</span>), <span class="at">series =</span> <span class="st">&quot;7-SMA&quot;</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
 <span id="cb16-7"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb16-7" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Datos ventas Line UPS y Media Móvil 7 periodos&quot;</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-14-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p><br></p>
 <p>El gráfico de ventas de Online UPS muestra valores de ventas mucho menores en comparación con AVR y Line UPS, con picos que apenas superan los 600. La serie tiene fluctuaciones más regulares y moderadas.</p>
 <p>La media móvil es más estable, aunque sigue algunas oscilaciones a lo largo del tiempo. <br></p>
@@ -2064,7 +2064,7 @@ Para la agrupación de los datos se identificarán las categorías de los ítems
 <span id="cb17-5"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb17-5" tabindex="-1"></a><span class="fu">autoplot</span>(Online_UPS_ts, <span class="at">series =</span> <span class="st">&quot;AVR&quot;</span> , <span class="at">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Ventas&quot;</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;Semana&quot;</span>)<span class="sc">+</span></span>
 <span id="cb17-6"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb17-6" tabindex="-1"></a>  <span class="fu">autolayer</span>(<span class="fu">ma</span>(Online_UPS_ts,<span class="dv">7</span>), <span class="at">series =</span> <span class="st">&quot;7-SMA&quot;</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
 <span id="cb17-7"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb17-7" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Datos ventas Online UPS y Media Móvil 7 periodos&quot;</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-15-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p><br></p>
 <p>Se observan picos importantes de ventas de Storage Battery en 2023 y 2024, alcanzando más de 6,000 unidades.</p>
 <p>La media móvil sigue los aumentos a partir de 2023, mostrando una tendencia al alza con mayor estabilidad hacia 2024. <br></p>
@@ -2075,7 +2075,7 @@ Para la agrupación de los datos se identificarán las categorías de los ítems
 <span id="cb18-5"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb18-5" tabindex="-1"></a><span class="fu">autoplot</span>(Storage_Battery_ts, <span class="at">series =</span> <span class="st">&quot;AVR&quot;</span> , <span class="at">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Ventas&quot;</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;Semana&quot;</span>)<span class="sc">+</span></span>
 <span id="cb18-6"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb18-6" tabindex="-1"></a>  <span class="fu">autolayer</span>(<span class="fu">ma</span>(Storage_Battery_ts,<span class="dv">7</span>), <span class="at">series =</span> <span class="st">&quot;7-SMA&quot;</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
 <span id="cb18-7"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb18-7" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Datos ventas Storage Battery y Media Móvil 7 periodos&quot;</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-16-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 <div id="rezagos" class="section level3 hasAnchor" number="2.3.2">
@@ -2085,16 +2085,16 @@ Para la agrupación de los datos se identificarán las categorías de los ítems
 <p>Para los grupos Line UPS y Online UPS los datos presentan un comportamiento disperso. <br></p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb19-1" tabindex="-1"></a><span class="co"># lag plot grafica de rezagos </span></span>
 <span id="cb19-2"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb19-2" tabindex="-1"></a><span class="fu">lag.plot</span>(AVR_ts, <span class="dv">12</span>, <span class="at">main =</span> <span class="st">&quot;Rezago AVR&quot;</span>, <span class="at">do.lines =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-17-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb20-1" tabindex="-1"></a><span class="co"># lag plot grafica de rezagos </span></span>
 <span id="cb20-2"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb20-2" tabindex="-1"></a><span class="fu">lag.plot</span>(Line_UPS_ts, <span class="dv">12</span>, <span class="at">main =</span> <span class="st">&quot;Rezago Line UPS&quot;</span>, <span class="at">do.lines =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-18-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb21-1" tabindex="-1"></a><span class="co"># lag plot grafica de rezagos </span></span>
 <span id="cb21-2"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb21-2" tabindex="-1"></a><span class="fu">lag.plot</span>(Online_UPS_ts, <span class="dv">12</span>, <span class="at">main =</span> <span class="st">&quot;Rezago Online UPS&quot;</span>, <span class="at">do.lines =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-19-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb22-1" tabindex="-1"></a><span class="co"># lag plot grafica de rezagos </span></span>
 <span id="cb22-2"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb22-2" tabindex="-1"></a><span class="fu">lag.plot</span>(Storage_Battery_ts, <span class="dv">12</span>, <span class="at">main =</span> <span class="st">&quot;Rezago Storage Battery&quot;</span>, <span class="at">do.lines =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-20-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="estacionalidad" class="section level3 hasAnchor" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> Estacionalidad<a href="estructura-de-los-datos-en-series-de-tiempo.html#estacionalidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -2104,28 +2104,28 @@ Para los datos de AVR se observan comportamiento identificable con picos pronunc
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb23-1" tabindex="-1"></a><span class="fu">seasonplot</span>(AVR_ts,  </span>
 <span id="cb23-2"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb23-2" tabindex="-1"></a>           <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="dv">4</span>), </span>
 <span id="cb23-3"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb23-3" tabindex="-1"></a>           <span class="at">year.labels =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-21-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 Para el grupo de items Line UPS se alcanza a identificar un comportamiento similar entre los datos mostrando un fenómeno de estacionalidad entre las semanas 35 y 37.
 <br></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb24-1" tabindex="-1"></a><span class="fu">seasonplot</span>(Line_UPS_ts,  </span>
 <span id="cb24-2"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb24-2" tabindex="-1"></a>           <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="dv">4</span>), </span>
 <span id="cb24-3"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb24-3" tabindex="-1"></a>           <span class="at">year.labels =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-22-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 Para el grupo de items de Online UPS no se alcanza a identificar patrones marcados, los datos parecen presentar un fenómeno de aleatoriedad en los datos.
 <br></p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb25-1" tabindex="-1"></a><span class="fu">seasonplot</span>(Online_UPS_ts, </span>
 <span id="cb25-2"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb25-2" tabindex="-1"></a>           <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="dv">4</span>), </span>
 <span id="cb25-3"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb25-3" tabindex="-1"></a>           <span class="at">year.labels =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-23-1.png" width="768" style="display: block; margin: auto;" />
 <br>
 Para el grupo de items de Storage battery no se alcanza a identificar patrones marcados, los datos parecen presentar un fenómeno de aleatoriedad en los datos.
 <br></p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb26-1" tabindex="-1"></a><span class="fu">seasonplot</span>(Storage_Battery_ts, </span>
 <span id="cb26-2"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb26-2" tabindex="-1"></a>           <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="dv">4</span>), </span>
 <span id="cb26-3"><a href="estructura-de-los-datos-en-series-de-tiempo.html#cb26-3" tabindex="-1"></a>           <span class="at">year.labels =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-24-1.png" width="768" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>

@@ -23,7 +23,7 @@
 <meta name="author" content="Andrés Monsalve, Luz Angélica Norato y Willy Corzo" />
 
 
-<meta name="date" content="2024-11-25" />
+<meta name="date" content="2024-12-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="modelos-estacionarios-en-series-de-tiempo---arima.html"/>
-
+<link rel="next" href="modelos-de-pronostico-con-redes-neuronales.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -231,6 +231,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.3" data-path="regresión-en-series-de-tiempo.html"><a href="regresión-en-series-de-tiempo.html#conclusión-4"><i class="fa fa-check"></i><b>6.5.3</b> Conclusión</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="modelos-de-pronostico-con-redes-neuronales.html"><a href="modelos-de-pronostico-con-redes-neuronales.html"><i class="fa fa-check"></i><b>7</b> Modelos de pronostico con Redes Neuronales</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="modelos-de-pronostico-con-redes-neuronales.html"><a href="modelos-de-pronostico-con-redes-neuronales.html#preparando-los-datos-de-entrenamiento"><i class="fa fa-check"></i><b>7.1</b> Preparando los datos de entrenamiento</a></li>
+<li class="chapter" data-level="7.2" data-path="modelos-de-pronostico-con-redes-neuronales.html"><a href="modelos-de-pronostico-con-redes-neuronales.html#implementación-del-modelo-de-red-neuronal---elman"><i class="fa fa-check"></i><b>7.2</b> Implementación del Modelo de Red Neuronal - ELMAN</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="modelos-de-pronostico-con-redes-neuronales.html"><a href="modelos-de-pronostico-con-redes-neuronales.html#configuración-y-entrenamiento-del-modelo"><i class="fa fa-check"></i><b>7.2.1</b> Configuración y entrenamiento del modelo</a></li>
+<li class="chapter" data-level="7.2.2" data-path="modelos-de-pronostico-con-redes-neuronales.html"><a href="modelos-de-pronostico-con-redes-neuronales.html#evaluación-del-modelo-elman"><i class="fa fa-check"></i><b>7.2.2</b> Evaluación del Modelo ELMAN</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="modelos-de-pronostico-con-redes-neuronales.html"><a href="modelos-de-pronostico-con-redes-neuronales.html#implementación-del-modelo-de-red-neuronal---jordan"><i class="fa fa-check"></i><b>7.3</b> Implementación del Modelo de Red Neuronal - JORDAN</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="modelos-de-pronostico-con-redes-neuronales.html"><a href="modelos-de-pronostico-con-redes-neuronales.html#configuración-y-entrenamiento-del-modelo-1"><i class="fa fa-check"></i><b>7.3.1</b> Configuración y entrenamiento del modelo</a></li>
+<li class="chapter" data-level="7.3.2" data-path="modelos-de-pronostico-con-redes-neuronales.html"><a href="modelos-de-pronostico-con-redes-neuronales.html#evaluación-del-modelo-jordan"><i class="fa fa-check"></i><b>7.3.2</b> Evaluación del Modelo Jordan</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -277,7 +291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 2024.558        2265.12 -2176.596 6706.837 -4527.899 9058.140
 2024.577        2265.12 -2176.596 6706.837 -4527.899 9058.140</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="regresión-en-series-de-tiempo.html#cb3-1" tabindex="-1"></a><span class="fu">plot</span>(prediccion_ETS_AVR)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-1-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="prophet-avr" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Prophet AVR<a href="regresión-en-series-de-tiempo.html#prophet-avr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -341,18 +355,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 185     950.2603     950.2603                    0                          0
 186    -559.5515    -559.5515                    0                          0
     multiplicative_terms_upper yhat_lower yhat_upper trend_lower trend_upper
-175                          0   2540.713  10594.639    1685.811    1685.811
-176                          0   1940.049   9766.620    1680.219    1680.219
-177                          0   2491.404  10739.469    1674.628    1674.628
-178                          0   3179.193  11736.993    1669.036    1669.037
-179                          0   3660.674  11887.475    1663.444    1663.446
-180                          0   2762.775  11614.613    1657.853    1657.854
-181                          0   2724.193  11009.974    1652.261    1652.263
-182                          0   3157.365  11561.141    1646.669    1646.672
-183                          0   4458.555  12048.725    1641.077    1641.081
-184                          0   4446.196  12676.329    1635.486    1635.490
-185                          0   3124.870  11102.653    1629.894    1629.899
-186                          0   1464.998   9727.109    1624.302    1624.308
+175                          0   2442.665  10500.018    1685.811    1685.811
+176                          0   1661.159   9487.196    1680.219    1680.219
+177                          0   2465.315  10926.561    1674.628    1674.628
+178                          0   3883.852  11945.136    1669.036    1669.037
+179                          0   3726.274  12009.312    1663.444    1663.446
+180                          0   2916.950  11138.785    1657.853    1657.855
+181                          0   2870.967  11184.954    1652.261    1652.263
+182                          0   3693.578  11549.124    1646.669    1646.672
+183                          0   4326.140  12693.980    1641.078    1641.081
+184                          0   4250.279  12420.856    1635.486    1635.490
+185                          0   2780.372  11209.785    1629.894    1629.899
+186                          0   1418.410   9839.154    1624.302    1624.308
         yhat
 175 6486.394
 176 5917.126
@@ -367,9 +381,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 185 7161.381
 186 5645.978</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="regresión-en-series-de-tiempo.html#cb6-1" tabindex="-1"></a><span class="fu">plot</span>(prophet_model_AVR, forecast_prophet_AVR)  <span class="co"># Graficar las predicciones</span></span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-2-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="regresión-en-series-de-tiempo.html#cb7-1" tabindex="-1"></a><span class="fu">prophet_plot_components</span>(prophet_model_AVR, forecast_prophet_AVR)  <span class="co"># Componentes del modelo</span></span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-2-2.png" width="768" style="display: block; margin: auto;" /></p>
 <div id="comparar-modelos" class="section level3 hasAnchor" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Comparar modelos<a href="regresión-en-series-de-tiempo.html#comparar-modelos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="regresión-en-series-de-tiempo.html#cb8-1" tabindex="-1"></a><span class="co"># Supongamos que tienes el siguiente:</span></span>
@@ -468,7 +482,7 @@ MAPE: 17.33%</p>
 <span id="cb10-26"><a href="regresión-en-series-de-tiempo.html#cb10-26" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Modelo&quot;</span></span>
 <span id="cb10-27"><a href="regresión-en-series-de-tiempo.html#cb10-27" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb10-28"><a href="regresión-en-series-de-tiempo.html#cb10-28" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-4-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="conclusión-1" class="section level3 hasAnchor" number="6.2.3">
@@ -488,7 +502,7 @@ MAPE: 17.33%</p>
 <span id="cb11-6"><a href="regresión-en-series-de-tiempo.html#cb11-6" tabindex="-1"></a></span>
 <span id="cb11-7"><a href="regresión-en-series-de-tiempo.html#cb11-7" tabindex="-1"></a><span class="co"># Graficar los resultados</span></span>
 <span id="cb11-8"><a href="regresión-en-series-de-tiempo.html#cb11-8" tabindex="-1"></a><span class="fu">plot</span>(forecast_ETS_Line_UPS)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-5-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="regresión-en-series-de-tiempo.html#cb12-1" tabindex="-1"></a><span class="co"># Preparar los datos para Prophet</span></span>
 <span id="cb12-2"><a href="regresión-en-series-de-tiempo.html#cb12-2" tabindex="-1"></a>prophet_Line_UPS <span class="ot">&lt;-</span> Line_UPS <span class="sc">%&gt;%</span></span>
 <span id="cb12-3"><a href="regresión-en-series-de-tiempo.html#cb12-3" tabindex="-1"></a>  <span class="fu">select</span>(Fecha, Total_Line_UPS) <span class="sc">%&gt;%</span></span>
@@ -549,18 +563,18 @@ MAPE: 17.33%</p>
 185     96.46131     96.46131                    0                          0
 186    337.90610    337.90610                    0                          0
     multiplicative_terms_upper yhat_lower yhat_upper trend_lower trend_upper
-175                          0   3397.146   9473.469    3340.160    3340.160
-176                          0   2615.576   8462.992    3337.782    3337.799
-177                          0   2003.053   7995.120    3335.392    3335.449
-178                          0   2425.406   8528.854    3332.999    3333.108
-179                          0   2910.064   9167.904    3330.593    3330.780
-180                          0   3416.442   9500.180    3328.186    3328.452
-181                          0   3173.707   9120.850    3325.777    3326.138
-182                          0   2589.513   8485.394    3323.358    3323.816
-183                          0   2349.045   8310.798    3320.946    3321.500
-184                          0   2677.804   8813.358    3318.522    3319.177
-185                          0   3485.498   9539.926    3316.101    3316.856
-186                          0   3725.710   9689.884    3313.671    3314.543
+175                          0   3590.244   9415.426    3340.160    3340.160
+176                          0   2492.115   8596.306    3337.788    3337.794
+177                          0   2146.815   8054.745    3335.403    3335.440
+178                          0   2219.451   8406.160    3333.013    3333.094
+179                          0   2897.122   8924.765    3330.615    3330.755
+180                          0   3386.321   9579.872    3328.209    3328.416
+181                          0   3268.963   8953.928    3325.794    3326.093
+182                          0   2541.570   8776.280    3323.378    3323.767
+183                          0   2347.364   8528.364    3320.964    3321.451
+184                          0   2985.961   8878.865    3318.533    3319.139
+185                          0   3371.868   9431.381    3316.115    3316.832
+186                          0   3825.331   9560.391    3313.677    3314.520
         yhat
 175 6583.411
 176 5532.899
@@ -575,9 +589,9 @@ MAPE: 17.33%</p>
 185 6429.676
 186 6668.751</code></pre>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="regresión-en-series-de-tiempo.html#cb14-1" tabindex="-1"></a><span class="fu">plot</span>(prophet_model_Line_UPS, forecast_prophet_Line_UPS)  <span class="co"># Graficar las predicciones</span></span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-6-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="regresión-en-series-de-tiempo.html#cb15-1" tabindex="-1"></a><span class="fu">prophet_plot_components</span>(prophet_model_Line_UPS, forecast_prophet_Line_UPS)  <span class="co"># Componentes del modelo</span></span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-6-2.png" width="768" style="display: block; margin: auto;" /></p>
 <div id="comparar-modelos-line-ups" class="section level3 hasAnchor" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> Comparar modelos Line UPS<a href="regresión-en-series-de-tiempo.html#comparar-modelos-line-ups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="regresión-en-series-de-tiempo.html#cb16-1" tabindex="-1"></a><span class="co"># Supongamos que tienes el siguiente:</span></span>
@@ -675,7 +689,7 @@ MAPE: 1.92%</p>
 <span id="cb18-26"><a href="regresión-en-series-de-tiempo.html#cb18-26" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Modelo&quot;</span></span>
 <span id="cb18-27"><a href="regresión-en-series-de-tiempo.html#cb18-27" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb18-28"><a href="regresión-en-series-de-tiempo.html#cb18-28" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-8-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="conclusión-2" class="section level3 hasAnchor" number="6.3.3">
@@ -696,7 +710,7 @@ ETS es el modelo más preciso según MAE y RMSE, y tiene un MAPE competitivo con
 <span id="cb19-6"><a href="regresión-en-series-de-tiempo.html#cb19-6" tabindex="-1"></a></span>
 <span id="cb19-7"><a href="regresión-en-series-de-tiempo.html#cb19-7" tabindex="-1"></a><span class="co"># Graficar los resultados</span></span>
 <span id="cb19-8"><a href="regresión-en-series-de-tiempo.html#cb19-8" tabindex="-1"></a><span class="fu">plot</span>(forecast_ETS_Online_UPS)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-9-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="regresión-en-series-de-tiempo.html#cb20-1" tabindex="-1"></a><span class="co"># Preparar los datos para Prophet</span></span>
 <span id="cb20-2"><a href="regresión-en-series-de-tiempo.html#cb20-2" tabindex="-1"></a>prophet_Online_UPS <span class="ot">&lt;-</span> Online_UPS <span class="sc">%&gt;%</span></span>
 <span id="cb20-3"><a href="regresión-en-series-de-tiempo.html#cb20-3" tabindex="-1"></a>  <span class="fu">select</span>(Fecha, Total_Online_UPS) <span class="sc">%&gt;%</span></span>
@@ -757,18 +771,18 @@ ETS es el modelo más preciso según MAE y RMSE, y tiene un MAPE competitivo con
 185    44.104817    44.104817                    0                          0
 186    45.317536    45.317536                    0                          0
     multiplicative_terms_upper yhat_lower yhat_upper trend_lower trend_upper
-175                          0   242.7535   495.1470    313.3944    313.3944
-176                          0   230.4207   488.5625    314.0513    314.0513
-177                          0   235.3473   493.5578    314.7083    314.7083
-178                          0   265.2954   508.9391    315.3652    315.3652
-179                          0   287.8789   531.3558    316.0222    316.0222
-180                          0   277.5668   514.4035    316.6791    316.6791
-181                          0   259.1450   514.2784    317.3360    317.3361
-182                          0   257.8356   493.4546    317.9930    317.9930
-183                          0   272.1924   516.5154    318.6499    318.6500
-184                          0   304.1633   554.5925    319.3069    319.3069
-185                          0   326.1739   567.5321    319.9638    319.9639
-186                          0   311.4206   569.6758    320.6208    320.6208
+175                          0   247.5940   489.3466    313.3944    313.3944
+176                          0   237.4934   487.9359    314.0513    314.0513
+177                          0   237.2575   491.1791    314.7083    314.7083
+178                          0   256.3475   509.3139    315.3652    315.3652
+179                          0   279.5554   529.9641    316.0222    316.0222
+180                          0   272.2059   530.6809    316.6791    316.6791
+181                          0   255.2287   503.3663    317.3360    317.3361
+182                          0   251.6662   504.6537    317.9930    317.9930
+183                          0   261.5529   520.1629    318.6499    318.6500
+184                          0   296.6270   534.6686    319.3069    319.3069
+185                          0   327.4191   573.4789    319.9638    319.9639
+186                          0   325.1278   583.0346    320.6208    320.6208
         yhat
 175 372.0910
 176 361.5792
@@ -783,9 +797,9 @@ ETS es el modelo más preciso según MAE y RMSE, y tiene un MAPE competitivo con
 185 443.9701
 186 445.8398</code></pre>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="regresión-en-series-de-tiempo.html#cb22-1" tabindex="-1"></a><span class="fu">plot</span>(prophet_model_Online_UPS, forecast_prophet_Online_UPS)  <span class="co"># Graficar las predicciones</span></span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-10-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="regresión-en-series-de-tiempo.html#cb23-1" tabindex="-1"></a><span class="fu">prophet_plot_components</span>(prophet_model_Online_UPS, forecast_prophet_Online_UPS)  <span class="co"># Componentes del modelo</span></span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-10-2.png" width="768" style="display: block; margin: auto;" /></p>
 <div id="comparar-modelos-online-ups" class="section level3 hasAnchor" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> Comparar modelos Online UPS<a href="regresión-en-series-de-tiempo.html#comparar-modelos-online-ups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="regresión-en-series-de-tiempo.html#cb24-1" tabindex="-1"></a><span class="co"># Supongamos que tienes el siguiente:</span></span>
@@ -881,7 +895,7 @@ MAPE: 3.61%</p>
 <span id="cb26-26"><a href="regresión-en-series-de-tiempo.html#cb26-26" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Modelo&quot;</span></span>
 <span id="cb26-27"><a href="regresión-en-series-de-tiempo.html#cb26-27" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb26-28"><a href="regresión-en-series-de-tiempo.html#cb26-28" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-12-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="conclusión-3" class="section level3 hasAnchor" number="6.4.3">
@@ -901,7 +915,7 @@ MAPE: 3.61%</p>
 <span id="cb27-6"><a href="regresión-en-series-de-tiempo.html#cb27-6" tabindex="-1"></a></span>
 <span id="cb27-7"><a href="regresión-en-series-de-tiempo.html#cb27-7" tabindex="-1"></a><span class="co"># Graficar los resultados</span></span>
 <span id="cb27-8"><a href="regresión-en-series-de-tiempo.html#cb27-8" tabindex="-1"></a><span class="fu">plot</span>(forecast_ETS_Storage_Battery)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-13-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="regresión-en-series-de-tiempo.html#cb28-1" tabindex="-1"></a><span class="co"># Preparar los datos para Prophet</span></span>
 <span id="cb28-2"><a href="regresión-en-series-de-tiempo.html#cb28-2" tabindex="-1"></a>prophet_Storage_Battery <span class="ot">&lt;-</span> Storage_Battery <span class="sc">%&gt;%</span></span>
 <span id="cb28-3"><a href="regresión-en-series-de-tiempo.html#cb28-3" tabindex="-1"></a>  <span class="fu">select</span>(Fecha, Total_Storage_Battery) <span class="sc">%&gt;%</span></span>
@@ -962,18 +976,18 @@ MAPE: 3.61%</p>
 185    -166.7383    -166.7383                    0                          0
 186    -274.4520    -274.4520                    0                          0
     multiplicative_terms_upper yhat_lower yhat_upper trend_lower trend_upper
-175                          0   4373.599   7008.675    2717.591    2717.591
-176                          0   4239.999   6871.248    2728.030    2728.030
-177                          0   4006.900   6684.892    2738.468    2738.469
-178                          0   3864.993   6554.024    2748.906    2748.908
-179                          0   3955.917   6761.770    2759.344    2759.347
-180                          0   4603.782   7189.029    2769.781    2769.786
-181                          0   4939.224   7703.591    2780.219    2780.225
-182                          0   5067.028   7756.436    2790.657    2790.664
-183                          0   4946.512   7658.614    2801.095    2801.104
-184                          0   4807.040   7289.168    2811.532    2811.544
-185                          0   4431.941   7010.860    2821.970    2821.983
-186                          0   4221.420   7005.923    2832.407    2832.423
+175                          0   4322.813   6825.404    2717.591    2717.591
+176                          0   4168.856   6888.614    2728.029    2728.030
+177                          0   3993.391   6647.880    2738.468    2738.469
+178                          0   3793.956   6554.182    2748.906    2748.908
+179                          0   4122.443   6739.843    2759.344    2759.347
+180                          0   4554.313   7186.359    2769.781    2769.786
+181                          0   4928.824   7662.299    2780.219    2780.226
+182                          0   5094.711   7772.947    2790.657    2790.665
+183                          0   4972.072   7580.510    2801.094    2801.105
+184                          0   4577.259   7242.161    2811.532    2811.544
+185                          0   4401.852   6890.317    2821.969    2821.984
+186                          0   4226.749   6778.031    2832.406    2832.423
         yhat
 175 5597.654
 176 5538.008
@@ -988,9 +1002,9 @@ MAPE: 3.61%</p>
 185 5651.420
 186 5554.145</code></pre>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="regresión-en-series-de-tiempo.html#cb30-1" tabindex="-1"></a><span class="fu">plot</span>(prophet_model_Storage_Battery, forecast_prophet_Storage_Battery)  </span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-14-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="regresión-en-series-de-tiempo.html#cb31-1" tabindex="-1"></a><span class="fu">prophet_plot_components</span>(prophet_model_Storage_Battery, forecast_prophet_Storage_Battery)</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-14-2.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-14-2.png" width="768" style="display: block; margin: auto;" /></p>
 <div id="comparar-modelos-storage_battery" class="section level3 hasAnchor" number="6.5.1">
 <h3><span class="header-section-number">6.5.1</span> Comparar modelos Storage_Battery<a href="regresión-en-series-de-tiempo.html#comparar-modelos-storage_battery" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="regresión-en-series-de-tiempo.html#cb32-1" tabindex="-1"></a><span class="co"># Supongamos que tienes el siguiente:</span></span>
@@ -1087,7 +1101,7 @@ Sus MAE y RMSE son considerablemente más altos, lo que indica predicciones meno
 <span id="cb34-26"><a href="regresión-en-series-de-tiempo.html#cb34-26" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Modelo&quot;</span></span>
 <span id="cb34-27"><a href="regresión-en-series-de-tiempo.html#cb34-27" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb34-28"><a href="regresión-en-series-de-tiempo.html#cb34-28" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="Minilibro_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="Minilibro_files/figure-html/unnamed-chunk-16-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="conclusión-4" class="section level3 hasAnchor" number="6.5.3">
@@ -1104,8 +1118,8 @@ Sus MAE y RMSE son considerablemente más altos, lo que indica predicciones meno
           </div>
         </div>
       </div>
-<a href="modelos-estacionarios-en-series-de-tiempo---arima.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="modelos-estacionarios-en-series-de-tiempo---arima.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modelos-de-pronostico-con-redes-neuronales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
