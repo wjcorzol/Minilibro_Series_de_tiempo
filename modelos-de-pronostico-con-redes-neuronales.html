@@ -403,10 +403,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-27"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb9-27" tabindex="-1"></a><span class="co"># Imprimir la tabla de resultados</span></span>
 <span id="cb9-28"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb9-28" tabindex="-1"></a><span class="fu">print</span>(resultados_elman)</span></code></pre></div>
 <pre><code>##            Modelo      RMSE
-## 1             AVR 2726.9552
-## 2        Line UPS 4515.4787
-## 3      Online UPS  242.1475
-## 4 Storage Battery 2333.2148</code></pre>
+## 1             AVR 2924.2995
+## 2        Line UPS 4549.4243
+## 3      Online UPS  247.0465
+## 4 Storage Battery 2335.0523</code></pre>
 </div>
 </div>
 <div id="implementación-del-modelo-de-red-neuronal---jordan" class="section level2 hasAnchor" number="7.3">
@@ -491,10 +491,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb16-26"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb16-26" tabindex="-1"></a><span class="co"># Imprimir la tabla de resultados</span></span>
 <span id="cb16-27"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb16-27" tabindex="-1"></a><span class="fu">print</span>(resultados_jordan)</span></code></pre></div>
 <pre><code>##     Modelo_jordan      RMSE
-## 1             AVR 2032.4870
-## 2        Line UPS 3787.1659
-## 3      Online UPS  197.1343
-## 4 Storage Battery 1676.4570</code></pre>
+## 1             AVR 2055.1813
+## 2        Line UPS 3654.8948
+## 3      Online UPS  203.2532
+## 4 Storage Battery 1660.2683</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb18-1" tabindex="-1"></a><span class="co"># Función de desnormalización</span></span>
 <span id="cb18-2"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb18-2" tabindex="-1"></a>denormalize <span class="ot">=</span> <span class="cf">function</span>(x, original) x <span class="sc">*</span> (<span class="fu">max</span>(original) <span class="sc">-</span> <span class="fu">min</span>(original)) <span class="sc">+</span> <span class="fu">min</span>(original)</span>
 <span id="cb18-3"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb18-3" tabindex="-1"></a></span>
