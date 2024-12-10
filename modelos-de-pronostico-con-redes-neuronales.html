@@ -357,17 +357,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-30"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb4-30" tabindex="-1"></a>  <span class="at">linOut =</span> <span class="cn">TRUE</span>  <span class="co"># Salida lineal</span></span>
 <span id="cb4-31"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb4-31" tabindex="-1"></a>)</span></code></pre></div>
 <p>Se observa que los modelos comienzan a converger antes de las 1000 iteraciones.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb5-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(AVR_model_elman)</span>
-<span id="cb5-2"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb5-2" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;Error Iterativo del Modelo Elman - AVR&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb5-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(AVR_model_elman)</span></code></pre></div>
 <p><img src="Minilibro_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb6-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(Line_UPS_model_elman)</span>
-<span id="cb6-2"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb6-2" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;Error Iterativo del Modelo Elman - Line_UPS&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb6-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(Line_UPS_model_elman)</span></code></pre></div>
 <p><img src="Minilibro_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb7-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(Online_UPS_model_elman)</span>
-<span id="cb7-2"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb7-2" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;Error Iterativo del Modelo Elman - Online_UPS&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb7-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(Online_UPS_model_elman)</span></code></pre></div>
 <p><img src="Minilibro_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb8-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(Storage_Battery_model_elman)</span>
-<span id="cb8-2"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb8-2" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;Error Iterativo del Modelo Elman - Storage_Battery&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb8-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(Storage_Battery_model_elman)</span></code></pre></div>
 <p><img src="Minilibro_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 ### Evaluación del Modelo ELMAN</p>
 <p>El modelo AVR tiene un error promedio de aproximadamente 2959 en las predicciones. Esto indica una desviación moderada de las predicciones respecto a los valores reales.</p>
@@ -403,10 +399,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-27"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb9-27" tabindex="-1"></a><span class="co"># Imprimir la tabla de resultados</span></span>
 <span id="cb9-28"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb9-28" tabindex="-1"></a><span class="fu">print</span>(resultados_elman)</span></code></pre></div>
 <pre><code>##            Modelo      RMSE
-## 1             AVR 2924.2995
-## 2        Line UPS 4549.4243
-## 3      Online UPS  247.0465
-## 4 Storage Battery 2335.0523</code></pre>
+## 1             AVR 2788.6361
+## 2        Line UPS 4601.2425
+## 3      Online UPS  254.5882
+## 4 Storage Battery 2294.1531</code></pre>
 </div>
 </div>
 <div id="implementación-del-modelo-de-red-neuronal---jordan" class="section level2 hasAnchor" number="7.3">
@@ -446,17 +442,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-30"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb11-30" tabindex="-1"></a>  <span class="at">linOut =</span> <span class="cn">TRUE</span>  <span class="co"># Salida lineal</span></span>
 <span id="cb11-31"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb11-31" tabindex="-1"></a>)</span></code></pre></div>
 <p>Se observa que los modelos comienzan a converger a un numero menor de interesaciones en comparacion con los modelos de ELMAN</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb12-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(AVR_model_jordan)</span>
-<span id="cb12-2"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb12-2" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;Error Iterativo del Modelo Jordan - AVR&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb12-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(AVR_model_jordan)</span></code></pre></div>
 <p><img src="Minilibro_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb13-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(Line_UPS_model_jordan)</span>
-<span id="cb13-2"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb13-2" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;Error Iterativo del Modelo Jordan - Line_UPS&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb13-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(Line_UPS_model_jordan)</span></code></pre></div>
 <p><img src="Minilibro_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb14-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(Online_UPS_model_jordan)</span>
-<span id="cb14-2"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb14-2" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;Error Iterativo del Modelo Jordan - Online_UPS&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb14-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(Online_UPS_model_jordan)</span></code></pre></div>
 <p><img src="Minilibro_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb15-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(Storage_Battery_model_jordan)</span>
-<span id="cb15-2"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb15-2" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;Error Iterativo del Modelo Jordan - Storage_Battery&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb15-1" tabindex="-1"></a><span class="fu">plotIterativeError</span>(Storage_Battery_model_jordan)</span></code></pre></div>
 <p><img src="Minilibro_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 ### Evaluación del Modelo Jordan</p>
 <p>El RMSE para el modelo AVR ha mejorado en comparación con el modelo Elman (antes: 2959.4477), indicando que el modelo Jordan produce predicciones más precisas para este caso.</p>
@@ -491,10 +483,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb16-26"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb16-26" tabindex="-1"></a><span class="co"># Imprimir la tabla de resultados</span></span>
 <span id="cb16-27"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb16-27" tabindex="-1"></a><span class="fu">print</span>(resultados_jordan)</span></code></pre></div>
 <pre><code>##     Modelo_jordan      RMSE
-## 1             AVR 2055.1813
-## 2        Line UPS 3654.8948
-## 3      Online UPS  203.2532
-## 4 Storage Battery 1660.2683</code></pre>
+## 1             AVR 2014.1975
+## 2        Line UPS 3704.7605
+## 3      Online UPS  198.0962
+## 4 Storage Battery 1714.9827</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb18-1" tabindex="-1"></a><span class="co"># Función de desnormalización</span></span>
 <span id="cb18-2"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb18-2" tabindex="-1"></a>denormalize <span class="ot">=</span> <span class="cf">function</span>(x, original) x <span class="sc">*</span> (<span class="fu">max</span>(original) <span class="sc">-</span> <span class="fu">min</span>(original)) <span class="sc">+</span> <span class="fu">min</span>(original)</span>
 <span id="cb18-3"><a href="modelos-de-pronostico-con-redes-neuronales.html#cb18-3" tabindex="-1"></a></span>
