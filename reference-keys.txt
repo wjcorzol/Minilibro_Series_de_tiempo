@@ -77,3 +77,11 @@ ets-3
 prophet-3
 conclusión-4
 regresión-en-series-de-tiempo
+modelos-de-pronostico-con-redes-neuronales
+preparando-los-datos-de-entrenamiento
+implementación-del-modelo-de-red-neuronal---elman
+configuración-y-entrenamiento-del-modelo
+implementación-del-modelo-de-red-neuronal---jordan
+configuración-y-entrenamiento-del-modelo-1
+evaluación-del-modelo-elman
+evaluación-del-modelo-jordan
